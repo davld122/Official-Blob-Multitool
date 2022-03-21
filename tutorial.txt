@@ -1,0 +1,1 @@
+Run setup.bat Then start.bat, the rest shod be pretty simple
