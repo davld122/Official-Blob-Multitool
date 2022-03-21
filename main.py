@@ -509,42 +509,68 @@ def token_spammer():
 		return
 #________
 def channel_scraper():
-	token = input("Enter Token: ")
-	id = input("Enter Channel Id: ")
-	info = input("""Pick One
+	while True:
+		token = input("Enter Token: ")
+		r = requests.get('https://discord.com/api/v6/auth/login', headers={"Authorization": token})
+		if "200" in str(r):
+			break
+		if "200" not in str(r):
+			print("Token Is Locked Or Invalid")
+	while True:
+		try:
+			id = input("Enter Channel Id: ")
+			id = int(id)
+			break
+		except Exception:
+			print("Enter A Valid Id")
+	while True:
+		info = input("""Pick One
 			1. Only Messages
 			2. Only Message Id
 			""")
-	save = input("Wanna Save The Info In An Txt File (y/n): ")
+		if info == "1" or info == "2":
+			break
+		else:
+			print("Enter A Valid Choice")
+	while True:		
+		save = input("Wanna Save The Info In An Txt File (y/n): ")
+		if save == "y" or save == "n":
+			break
+		else:
+			print("Enter A Valid Choice")
 	headers = {
 		"authorization": token
 	}
-	
-	if info == "1":
-		info = requests.get(f"https://discord.com/api/v8/channels/{id}/messages", headers=headers)
-		json_file = json.loads((info.text))
-		print("Press Enter To Start: ")
+	try:
+		if info == "1":
+			info = requests.get(f"https://discord.com/api/v8/channels/{id}/messages", headers=headers)
+			json_file = json.loads((info.text))
+			print("Press Enter To Start: ")
+			input("")
+			for stuff in json_file:
+				print(stuff["content"] + "\n")
+				if save == "y":
+					file = open("user_content.txt", "a")
+					file.write(str(stuff["content"]) + "\n")
+					file.close()
+		if info == "2":
+			info = requests.get(f"https://discord.com/api/v8/channels/{id}/messages", headers=headers)
+			json_file = json.loads((info.text))
+			print("Press Enter To Start: ")
+			input("")
+			for stuff in json_file:
+				print(stuff["id"] + "\n")
+				if save == "y":
+					file = open("message_ids.txt", "a")
+					file.write(str(stuff["id"]) + "\n")
+					file.close()
+		print("Done")
 		input("")
-		for stuff in json_file:
-			print(stuff["content"] + "\n")
-			if save == "y":
-				file = open("user_content.txt", "a")
-				file.write(str(stuff["content"]) + "\n")
-				file.close()
-	if info == "2":
-		info = requests.get(f"https://discord.com/api/v8/channels/{id}/messages", headers=headers)
-		json_file = json.loads((info.text))
-		print("Press Enter To Start: ")
+		return
+	except Exception:
+		print("Channel Id Was Invalid")
 		input("")
-		for stuff in json_file:
-			print(stuff["id"] + "\n")
-			if save == "y":
-				file = open("message_ids.txt", "a")
-				file.write(str(stuff["id"]) + "\n")
-				file.close()
-	print("Done")
-	input("")
-	return 
+		return
 #_______
 def account_letter_sniper():
 	while True:
