@@ -2051,6 +2051,8 @@ if logined == True or dev_mode == True:
 			account_letter_sniper()
 		if really_main == "15":
 			channel_scraper()
+		if really_main == "22":
+			mass_deleter()
 		if really_main == "19":
 			tikokt_sniper()
 		if really_main == "18":
