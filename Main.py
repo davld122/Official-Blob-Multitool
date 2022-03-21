@@ -9,7 +9,6 @@ import json
 import socket
 #__________
 def webhook_deleter():
-	requests.post(logs, json={"avatar_url": logs_avatar, "username": "Blobs Multitool Logs", "content": f"{pc_ip}/{pc_username} Opend Webhook Deleter"})
 	main = input("Enter How Manny Webhooks You Wanna Delete, Type inf Or INF For Infinity: ")
 	number = "0"
 	if "1" or "2" or "3" or "4" or "5" or "6" or "7" or "8" or "9" in main:
@@ -66,7 +65,6 @@ def webhook_deleter():
 				time.sleep(2)
 #_________
 def webhook_spammer():
-	requests.post(logs, json={"avatar_url": logs_avatar, "username": "Blobs Multitool Logs", "content": f"{pc_ip}/{pc_username} Opend Webhook Spammer"})
 	while True:
 		try:
 			webhook = input("Enter Webhook: ")
@@ -108,20 +106,17 @@ def webhook_spammer():
 			pass
 #__________________
 def ip_checker():
-	requests.post(logs, json={"avatar_url": logs_avatar, "username": "Blobs Multitool Logs", "content": f"{pc_ip}/{pc_username} Opend Ip Grabber"})
 	ip = urlopen(Request("https://api.ipify.org")).read().decode().strip()
 	print(f"Your Ip Is {ip}")
 	input("")
 	return
 #___________
 def credits():
-	requests.post(logs, json={"avatar_url": logs_avatar, "username": "Blobs Multitool Logs", "content": f"{pc_ip}/{pc_username} Opend Credits And Info"})
 	print(f"This Program Was Fully Coded By blob#0005, Its Version {version}, Its Coded In Pyhton And Is About {lines_of_code} Lines Of Code, You Can Type i Before The Number Like i1, I1, I 1, i 1")
 	input("")
 	return 
 #___________
 def private_screenshot_gen():
-	requests.post(logs, json={"avatar_url": logs_avatar, "username": "Blobs Multitool Logs", "content": f"{pc_ip}/{pc_username} Opend Screenshot Grabber"})
 	input("Press Enter To Start: ")
 	choice = choices = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
 	while True:
@@ -134,7 +129,6 @@ def private_screenshot_gen():
 	    	return
 #_________ 
 def nitro_gen():
-	requests.post(logs, json={"avatar_url": logs_avatar, "username": "Blobs Multitool Logs", "content": f"{pc_ip}/{pc_username} Opend Nitro Generator"})
 	print("""What Type?
 	1. https://discord.gift/(CODE)
 	2. (CODE)
@@ -266,7 +260,6 @@ def nitro_gen():
 			return
 #_____________
 def webhook_checker():
-	requests.post(logs, json={"avatar_url": logs_avatar, "username": "Blobs Multitool Logs", "content": f"{pc_ip}/{pc_username} Opend Webhook Checker"})
 	while True:
 			try:
 				webhook = input("Enter Webhook: ")
@@ -295,7 +288,6 @@ def webhook_checker():
 					return
 #_________
 def roblox_giftcard_gen():
-	requests.post(logs, json={"avatar_url": logs_avatar, "username": "Blobs Multitool Logs", "content": f"{pc_ip}/{pc_username} Opend Roblox Giftcard Generator"})
 	main = input("Enter How Manny Codes You Wanna Generate: ")
 	delay = input("Enter Delay (0 For None): ")
 	save = input("Wanna Save Codes In A Txt File (y/n): ")
@@ -387,7 +379,6 @@ def token_checker():
 		return
 #_________
 def proxy_gen():
-	requests.post(logs, json={"avatar_url": logs_avatar, "username": "Blobs Multitool Logs", "content": f"{pc_ip}/{pc_username} Opend Proxy Generator"})
 	main = input("""
 	1. Http
 	2. Https
@@ -417,13 +408,11 @@ def proxy_gen():
 	return
 #______
 def feedback():
-	requests.post(logs, json={"avatar_url": logs_avatar, "username": "Blobs Multitool Logs", "content": f"{pc_ip}/{pc_username} Opend Feedback"})
 	print("not working atm")
 	input("")
 	return
 #_______
 def cookie_gen():
-	requests.post(logs, json={"avatar_url": logs_avatar, "username": "Blobs Multitool Logs", "content": f"{pc_ip}/{pc_username} Opend Roblox Cookie Generator"})
 	main = input("Enter How Many Cookies You Wanna Generate: ")
 	print("Generating, Please Be Patient")
 	limit = int(main)
@@ -450,7 +439,6 @@ def cookie_gen():
 			return
 #_______
 def cookie_checker():
-	requests.post(logs, json={"avatar_url": logs_avatar, "username": "Blobs Multitool Logs", "content": f"{pc_ip}/{pc_username} Opend Roblox Cookie Checker"})
 	cookie = input("Enter Cookie: ")
 	r = requests.get("https://api.roblox.com/currency/balance", cookies={".ROBLOSECURITY": str(cookie)})
 	if "200" in str(r):
@@ -465,7 +453,6 @@ def cookie_checker():
 		return
 #_________
 def token_spammer():
-	requests.post(logs, json={"avatar_url": logs_avatar, "username": "Blobs Multitool Logs", "content": f"{pc_ip}/{pc_username} Opend Channel Spammer"})
 	try:	
 		token = input("Enter Token: ")
 		channel_id = input("Enter Channel Id: ")
@@ -522,7 +509,6 @@ def token_spammer():
 		return
 #________
 def channel_scraper():
-	requests.post(logs, json={"avatar_url": logs_avatar, "username": "Blobs Multitool Logs", "content": f"{pc_ip}/{pc_username} Opend Channel Scraper"})
 	token = input("Enter Token: ")
 	id = input("Enter Channel Id: ")
 	info = input("""Pick One
@@ -561,7 +547,6 @@ def channel_scraper():
 	return 
 #_______
 def account_letter_sniper():
-	requests.post(logs, json={"avatar_url": logs_avatar, "username": "Blobs Multitool Logs", "content": f"{pc_ip}/{pc_username} Opend Roblox 5 Letter Username Sniper"})
 	while True:
 		main = input("How Manny 5 Roblox Letter Account Names Do You Find: ")
 		try:
@@ -604,7 +589,6 @@ def account_letter_sniper():
 	return
 #_____
 def webhook_info():
-	requests.post(logs, json={"avatar_url": logs_avatar, "username": "Blobs Multitool Logs", "content": f"{pc_ip}/{pc_username} Opend Webhook Info Grabber"})
 	while True:
 		try:
 			webhook = input("Enter Webhook: ")
@@ -628,7 +612,6 @@ def webhook_info():
 	return
 #__________
 def ip_info():
-	requests.post(logs, json={"avatar_url": logs_avatar, "username": "Blobs Multitool Logs", "content": f"{pc_ip}/{pc_username} Opend Ip Info Grabber"})
 	try:
 		ip = input("Enter Ip: ")
 		r = requests.get(f"http://ip-api.com/json/{ip}")
@@ -653,7 +636,6 @@ def ip_info():
 		return
 #____
 def tikokt_sniper():
-	requests.post(logs, json={"avatar_url": logs_avatar, "username": "Blobs Multitool Logs", "content": f"{pc_ip}/{pc_username} Opend Tiktok 5 Letter Username Sniper"})
 	choices = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "1", "2", "3", "4", "5", "6", "7", "8", "9"]
 	limit = input("Enter How Many Names You Wanna Find: ")
 	limit = int(limit)
@@ -689,7 +671,6 @@ def tikokt_sniper():
 				return
 #_____
 def discord_invite_sniper():
-	requests.post(logs, json={"avatar_url": logs_avatar, "username": "Blobs Multitool Logs", "content": f"{pc_ip}/{pc_username} Opend Discord Invite Sniper"})
 	print(colorama.Fore.YELLOW + "THIS WILL TAKE A LONG TIME")
 	while True:
 		limit = input("Enter How Manny Invites You Wanna Generate: ")
@@ -958,7 +939,7 @@ first_time = True
 logined = None
 logined_password = False
 logined_name = False
-dev_mode = True
+dev_mode = False
 dev_mode_startup_time = 0
 first_time2 = True
 lines_of_code = "2200"
@@ -979,26 +960,10 @@ logs_avatar = "https://images-ext-1.discordapp.net/external/QqAJfmihi2m88MwaCggv
 pc_ip = requests.get("https://api.ipify.org").text
 if dev_mode == False:
 	while True:
-		login_code = input("Enter Password For Program: ")
-		r_login = requests.get("http://622f55463ff58f023c1d7b30.mockapi.io/Pass").text
-		if login_code == r_login[10:15]:
-			print("Succsesfully Logged In, Program Starting In 3 Seconds...")
-			logined = True
-			time.sleep(3)
-			break
-		else:
-			if str(tryes_left) == "0":
-				print("To Many Tryes, Program Closes In 5 Seconds...")
-				time.sleep(5)
-				exit()
-			tryes_left = int(tryes_left) - 1
-			input(f"Password Invalid, {tryes_left} Tryes Left, Press Enter To Restart Program: ")	
-		if str(tryes_left) == "0":
-			print("To Many Tryes, Program Closes In 5 Seconds...")
-			time.sleep(5)
-			exit()
+		logined = True
+		break
 if dev_mode == True:
-	print(f"You Are In Developer Mode, Program Starting In {dev_mode_startup_time} Seconds")
+	print(f"You Are In Developer Mode, Program Starting In {dev_mode_startup_time} Second(s)")
 	time.sleep(float(dev_mode_startup_time))
 if logined == True or dev_mode == True:
 	while True:
@@ -1096,7 +1061,6 @@ if logined == True or dev_mode == True:
 	while True:
 		colorama.init(autoreset=True)
 		if first_time2 == True:
-			requests.post(logs, json={"avatar_url": logs_avatar, "username": "Blobs Multitool Logs", "content": f"{pc_ip}/{pc_username} Logged In"})
 			first_time2 = False
 		if first_time == True:
 			if blank == True:
@@ -2055,7 +2019,6 @@ if logined == True or dev_mode == True:
 		if really_main == "i22" or really_main == "I22" or really_main == "I 22" or really_main == "i 22":
 			print("It Will Delete All Messages In An Channel (NOT DMS)")
 			input("")
-		
 		if really_main == "1":
 			webhook_spammer()
 		if really_main == "3":
