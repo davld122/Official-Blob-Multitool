@@ -118,7 +118,7 @@ def credits():
 #___________
 def private_screenshot_gen():
 	input("Press Enter To Start: ")
-	choice = choices = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
+	choice = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
 	while True:
 	    AS = random.randint(1000, 9999)
 	    main1 = random.choice(choice)
@@ -996,8 +996,61 @@ def ip_logger_builder():
 	file.close()
 	input("")
 	exit()
-	
-
+#----
+def pastebin_sniper():
+	print("Pastebin Sniper")
+	choice = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
+	valid_gen_amount = 0
+	total = 0
+	invalid = 0
+	while True:
+		try:
+			limit = input("Enter How Manny Pastebin Links You Wanna Snipe: ")	
+			limit = int(limit)
+			break
+		except Exception:
+			print("Enter A Number")
+	while True:
+		save = input("Wanna Save All Links (y/n): ")
+		if save == "y" or save == "n":
+			break
+		else:
+			print("Enter A Valid Choice")
+	input("Press Enter To Start")
+	while True:
+		r1 = random.choice(choice)
+		r2 = random.choice(choice)			
+		r3 = random.choice(choice)
+		r4 = random.choice(choice)
+		r5 = random.choice(choice)
+		r6 = random.choice(choice)
+		r7 = random.choice(choice)
+		r8 = random.choice(choice)
+		url = f"https://pastebin.com/{r1}{r2}{r3}{r4}{r5}{r6}{r7}{r8}"
+		r = requests.get(url)
+		if "200" in str(r):
+			print(colorama.Fore.GREEN + "Valid Link: " + str(url))
+			valid_gen_amount = int(valid_gen_amount) + 1
+			total = int(total) + 1
+			if save == "y":
+				invalid_file = open("valid_pastebin_links.txt", "a")
+				invalid_file.write(f"{url}\n")
+				invalid_file.close()
+		if "404" in str(r):
+			print(colorama.Fore.RED + "Invalid Link: " + str(url))
+			invalid = int(invalid) + 1
+			total = int(total) + 1
+			if save == "y":
+				invalid_file = open("invalid_pastebin_links.txt", "a")
+				invalid_file.write(f"{url}\n")
+				invalid_file.close()
+		if "429" in str(r):
+			print(colorama.Fore.RED + "Rate Limited")
+		if int(valid_gen_amount) == int(limit):
+			print("Done")
+			print(f"Stats: \nTotal Checked: {total}\nTotal Invalid: {invalid}/{total}\nTotal Valid: {valid_gen_amount}/{total}")
+			input("")
+			return
 
 
 
@@ -1028,8 +1081,8 @@ logined_name = False
 dev_mode = False
 dev_mode_startup_time = 0
 first_time2 = True
-lines_of_code = "2300"
-version = "Beta 3.9"
+lines_of_code = "2400"
+version = "Beta 4.0"
 delay = 0.01
 rainbow = False
 blank = False
@@ -1290,6 +1343,11 @@ if logined == True or dev_mode == True:
 			print(colorama.Fore.BLUE + "		|23. Ip Logger Builder               |")
 			time.sleep(delay)
 			print(colorama.Fore.CYAN + "		|------------------------------------|")
+			time.sleep(delay)
+			print(colorama.Fore.MAGENTA + "		|24. Pastebin Sniper                 |")
+			time.sleep(delay)
+			#___
+			print(colorama.Fore.RED + "		|------------------------------------|")
 #__________________
 		if blank == True:
 			print("		██████╗░██╗░░░░░░█████╗░██████╗░░██████╗  ███╗░░░███╗██╗░░░██╗██╗░░░░░████████╗██╗████████╗░█████╗░░█████╗░██╗░░░░░")
@@ -1397,6 +1455,10 @@ if logined == True or dev_mode == True:
 			print("		|------------------------------------|")
 			time.sleep(delay)
 			print("		|23. Ip Logger Builder               |")
+			time.sleep(delay)
+			print("		|------------------------------------|")
+			time.sleep(delay)
+			print("		|24. Pastebin Sniper                 |")
 			time.sleep(delay)
 			print("		|------------------------------------|")
 #________________
@@ -1508,6 +1570,10 @@ if logined == True or dev_mode == True:
 			print(colorama.Fore.RED + "		|23. Ip Logger Builder               |")
 			time.sleep(delay)
 			print(colorama.Fore.RED + "		|------------------------------------|")
+			time.sleep(delay)
+			print(colorama.Fore.RED + "		|24. Pastebin Sniper                 |")
+			time.sleep(delay)
+			print(colorama.Fore.RED + "		|------------------------------------|")
 #________________
 		if blue == True:
 			print(colorama.Fore.BLUE + "		██████╗░██╗░░░░░░█████╗░██████╗░░██████╗  ███╗░░░███╗██╗░░░██╗██╗░░░░░████████╗██╗████████╗░█████╗░░█████╗░██╗░░░░░")
@@ -1615,6 +1681,10 @@ if logined == True or dev_mode == True:
 			print(colorama.Fore.BLUE + "		|------------------------------------|")
 			time.sleep(delay)
 			print(colorama.Fore.BLUE + "		|23. Ip Logger Builder               |")
+			time.sleep(delay)
+			print(colorama.Fore.BLUE + "		|------------------------------------|")
+			time.sleep(delay)
+			print(colorama.Fore.BLUE + "		|24. Pastebin Sniper                 |")
 			time.sleep(delay)
 			print(colorama.Fore.BLUE + "		|------------------------------------|")
 #________________
@@ -1726,6 +1796,10 @@ if logined == True or dev_mode == True:
 			print(colorama.Fore.GREEN + "		|23. Ip Logger Builder               |")
 			time.sleep(delay)
 			print(colorama.Fore.GREEN + "		|------------------------------------|")
+			time.sleep(delay)
+			print(colorama.Fore.GREEN + "		|24. Pastebin Sniper                 |")
+			time.sleep(delay)
+			print(colorama.Fore.GREEN + "		|------------------------------------|")
 #________________
 		if magenta == True:
 			print(colorama.Fore.MAGENTA + "		██████╗░██╗░░░░░░█████╗░██████╗░░██████╗  ███╗░░░███╗██╗░░░██╗██╗░░░░░████████╗██╗████████╗░█████╗░░█████╗░██╗░░░░░")
@@ -1833,6 +1907,10 @@ if logined == True or dev_mode == True:
 			print(colorama.Fore.MAGENTA + "		|------------------------------------|")
 			time.sleep(delay)
 			print(colorama.Fore.MAGENTA + "		|23. Ip Logger Builder               |")
+			time.sleep(delay)
+			print(colorama.Fore.MAGENTA + "		|------------------------------------|")
+			time.sleep(delay)
+			print(colorama.Fore.MAGENTA + "		|24. Pastebin Sniper                 |")
 			time.sleep(delay)
 			print(colorama.Fore.MAGENTA + "		|------------------------------------|")
 #________________
@@ -1944,6 +2022,10 @@ if logined == True or dev_mode == True:
 			print(colorama.Fore.YELLOW + "		|23. Ip Logger Builder               |")
 			time.sleep(delay)
 			print(colorama.Fore.YELLOW + "		|------------------------------------|")
+			time.sleep(delay)
+			print(colorama.Fore.YELLOW + "		|24. Pastebin Sniper                 |")
+			time.sleep(delay)
+			print(colorama.Fore.YELLOW + "		|------------------------------------|")
 #________________
 		if cyan == True:
 			print(colorama.Fore.CYAN + "		██████╗░██╗░░░░░░█████╗░██████╗░░██████╗  ███╗░░░███╗██╗░░░██╗██╗░░░░░████████╗██╗████████╗░█████╗░░█████╗░██╗░░░░░")
@@ -2053,6 +2135,10 @@ if logined == True or dev_mode == True:
 			print(colorama.Fore.CYAN + "		|23. Ip Logger Builder               |")
 			time.sleep(delay)
 			print(colorama.Fore.CYAN + "		|------------------------------------|")
+			time.sleep(delay)
+			print(colorama.Fore.CYAN + "		|24. Pastebin Sniper                 |")
+			time.sleep(delay)
+			print(colorama.Fore.CYAN + "		|------------------------------------|")
 #________________
 		colorama.init()
 		if color == "8":
@@ -2141,6 +2227,9 @@ if logined == True or dev_mode == True:
 		if really_main == "i23" or really_main == "I23" or really_main == "I 23" or really_main == "i 23":
 			print("It Will Create An Ip Logger Connected To Your Webhook")
 			input("")
+		if really_main == "i24" or really_main == "I24" or really_main == "I 24" or really_main == "i 24":
+			print("It Will Try Snipe Pastebin Links, Can Take A Long Time")
+			input("")
 		if really_main == "1":
 			webhook_spammer()
 		if really_main == "3":
@@ -2167,6 +2256,8 @@ if logined == True or dev_mode == True:
 			proxy_gen()
 		if really_main == "10":
 			feedback()
+		if really_main == "24":
+			pastebin_sniper()
 		if really_main == "17":
 			webhook_info()
 		if really_main == "13":
