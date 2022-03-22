@@ -320,21 +320,25 @@ def roblox_giftcard_gen():
 def token_checker():
 	main = input("""Pick One
 	1. Check 1 Token
-	2. Check Tokens In tokens.txt
+	2. Check Tokens In tokens.txt 
 	""")
 	if main == "1":
 		while True:
 			tokens = input("Enter Token: ")
-			r = requests.get('https://discord.com/api/v6/auth/login', headers={"Authorization": tokens})
-			if "200" in str(r):
-				print("Token Valid")
-			if "200" not in str(r):
-				print("Token Is Locked Or Invalid")
+			r1 = requests.get('https://discord.com/api/v6/auth/login', headers={"Authorization": tokens})
+			if "200" not in str(r1):
+				print(colorama.Fore.RED + "Invalid")
+			if "200" in str(r1):
+				r = requests.get(f'https://discord.com/api/v6/invite/{invite_code}', headers={"Authorization": tokens})
+				if "200" in str(r):
+					print(colorama.Fore.GREEN + "Valid")
+				if "403" in str(r):
+					print(colorama.Fore.YELLOW + "Locked")
 			main = input("Wanna Check Another Token, y/n: ")
 			if main == "n":
 				return
 			if main == "y":
-				pass	
+				pass
 	if main == "2":
 		total_checked = 0
 		total_valid = 0
@@ -349,13 +353,13 @@ def token_checker():
 		for token in tokens_to_check:
 			r = requests.get('https://discord.com/api/v6/auth/login', headers={"Authorization": token})
 			if "200" in str(r):
-				print("Token Valid")
+				print(colorama.Fore.GREEN + "Token Valid")
 				print(token)
 				valid_tokens.append(token)
 				total_checked = total_checked + 1
 				total_valid = total_valid + 1
 			if "200" not in str(r):
-				print("Token Is Locked Or Invalid")
+				print(colorama.Fore.RED + "Token Is Locked Or Invalid")
 				print(token)
 				total_checked = total_checked + 1
 				total_invalid = total_invalid + 1
@@ -454,12 +458,48 @@ def cookie_checker():
 #_________
 def token_spammer():
 	try:	
-		token = input("Enter Token: ")
-		channel_id = input("Enter Channel Id: ")
+		while True:
+			token = input("Enter Token: ")
+			r1 = requests.get('https://discord.com/api/v6/auth/login', headers={"Authorization": token})
+			if "200" not in str(r1):
+				print("Token Invalid")
+			if "200" in str(r1):
+				r = requests.get(f'https://discord.com/api/v6/invite/{invite_code}', headers={"Authorization": token})
+				if "200" in str(r):
+					break
+				if "403" in str(r):
+					print("Token Locked")
+		while True:
+			try:
+				channel_id = input("Enter Channel Id: ")
+				channel_id = int(channel_id)
+				channel_id = str(channel_id)
+				break
+			except Exception:
+				print("Channel Id Was Invalid")
 		message = input("Enter Message To Send: ")
-		delay = input("Enter Delay (1-2 Recomended, 0 For None): ")
-		amount = input("Enter How Many Messages You Wanna Send: ")
-		main = input("Do You Want Random Number At End (y/n): ")
+		while True:
+			try:
+				delay = input("Enter Delay (1-2 Recomended, 0 For None): ")
+				delay = int(delay)
+				delay = str(delay)
+				break
+			except Exception:
+				print("Enter A Valid Delay")
+		while True:
+			try:
+				amount = input("Enter How Many Messages You Wanna Send: ")
+				amount = int(amount)
+				amount = str(amount)
+				break
+			except Exception:
+				print("Enter A Valid Amount")
+		while True:
+			main = input("Do You Want Random Number At End (y/n): ")
+			if main == "y" or main == "n":
+				break
+			else:
+				print("Enter A Valid Choice")
 		limit = int(amount)
 		done = 0
 		if main == "n":
@@ -504,18 +544,22 @@ def token_spammer():
 					return
 				time.sleep(float(delay))
 	except Exception:
-		print("Something Went Wrong")
+		print("Channel Id Was Invalid, To Late In Process To Pick New Id, Press Enter To Go Back")
 		input("")
 		return
 #________
 def channel_scraper():
 	while True:
 		token = input("Enter Token: ")
-		r = requests.get('https://discord.com/api/v6/auth/login', headers={"Authorization": token})
-		if "200" in str(r):
-			break
-		if "200" not in str(r):
-			print("Token Is Locked Or Invalid")
+		r1 = requests.get('https://discord.com/api/v6/auth/login', headers={"authorization": token})
+		if "200" not in str(r1):
+			print("Invalid Token")
+		if "200" in str(r1):
+			r = requests.get(f"https://discord.com/api/v6/invite/{invite_code}", headers={"authorization": token})
+			if "200" in str(r):
+				break
+			if "403" in str(r):
+				print("Locked Token")
 	while True:
 		try:
 			id = input("Enter Channel Id: ")
@@ -873,12 +917,15 @@ def mass_deleter():
 	msg_ids = []
 	while True:
 		user_token = input("Enter Token: ")
-		r = requests.get('https://discord.com/api/v6/auth/login', headers={"Authorization": user_token})
-		r = str(r)
-		if "200" in r:
-			break
-		else:
-			print("Token Invalid")
+		r1 = requests.get('https://discord.com/api/v6/auth/login', headers={"Authorization": user_token})
+		if "200" not in str(r1):
+			print("Invalid")
+		if "200" in str(r1):
+			r = requests.get(f'https://discord.com/api/v6/invite/{invite_code}', headers={"Authorization": user_token})
+			if "200" in str(r):
+				break
+			if "403" in str(r):
+				print("Locked")
 	while True:
 		try:
 			id = input("Enter Channel Id: ")
@@ -973,6 +1020,7 @@ version = "Beta 3.8"
 delay = 0.01
 rainbow = False
 blank = False
+invite_code = "sJxg3jnU"
 red = False
 blue = False
 cyan = False
