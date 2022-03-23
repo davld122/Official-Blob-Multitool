@@ -1051,9 +1051,59 @@ def pastebin_sniper():
 			print(f"Stats: \nTotal Checked: {total}\nTotal Invalid: {invalid}/{total}\nTotal Valid: {valid_gen_amount}/{total}")
 			input("")
 			return
-
-
-
+def invite_to_info():
+	colorama.init(autoreset=True)
+	while True:
+		invite = input("Enter Invite: ")
+		r = requests.get(f"https://discord.com/api/v6/invite/{invite}").text
+		if '{"message": "Unknown Invite", "code": 10006}' == str(r):
+			print("Invite Invalid")
+		if '{"message": "Unknown Invite", "code": 10006}' not in str(r):
+			break
+	r = requests.get(f"https://discord.com/api/v6/invite/{invite}")
+	r = r.json()
+	print("Server Info: ")
+	try:
+		print(colorama.Fore.GREEN + "Guild Id: " + str(r["guild"]["id"]))
+	except Exception:
+		print(colorama.Fore.RED + "Error While Getting Guild Id")
+	print("\n")		
+	try:
+		print(colorama.Fore.GREEN + "Server Name: " + str(r["guild"]["name"]))
+	except Exception:
+		print(colorama.Fore.RED + "Error While Getting Server Name")
+	print("\n")
+	try:
+		print(colorama.Fore.GREEN + "Server Description: " + str(r["guild"]["description"]))
+	except Exception:
+		print(colorama.Fore.RED + "Error While Getting Server Description")
+	print("\n")	
+	try:
+		print(colorama.Fore.GREEN + "Verification Level: " + str(r["guild"]["verification_level"]))
+	except Exception:
+		print("Error While Getting Server Verification Level")
+	print("\n")
+	try:
+		print(colorama.Fore.GREEN + "Vanity Url: " + str(r["guild"]["vanity_url_code"]))
+	except Exception:
+		print("Error While Getting Vanity Url")
+	print("---" * 10)
+	print("Inviter Info")
+	try:
+		print(colorama.Fore.GREEN + "Inviter Username: " + str(r["inviter"]["username"]))
+	except Exception:
+		print(colorama.Fore.RED + "Error While Getting Inviter Username")
+	print("\n")
+	try:
+		print(colorama.Fore.GREEN + "Inviter Id: " + str(r["inviter"]["id"]))
+	except Exception:
+		print(colorama.Fore.RED + "Error While Getting Inviter Id")
+	print("\n")
+	print("Done")
+	input("")
+	return
+	
+	
 
 	
 	
@@ -1348,6 +1398,10 @@ if logined == True or dev_mode == True:
 			time.sleep(delay)
 			#___
 			print(colorama.Fore.RED + "		|------------------------------------|")
+			time.sleep(delay)
+			print(colorama.Fore.YELLOW + "		|25. Invite Info Grabber             |")
+			time.sleep(delay)
+			print(colorama.Fore.GREEN + "		|------------------------------------|")
 #__________________
 		if blank == True:
 			print("		██████╗░██╗░░░░░░█████╗░██████╗░░██████╗  ███╗░░░███╗██╗░░░██╗██╗░░░░░████████╗██╗████████╗░█████╗░░█████╗░██╗░░░░░")
@@ -1459,6 +1513,10 @@ if logined == True or dev_mode == True:
 			print("		|------------------------------------|")
 			time.sleep(delay)
 			print("		|24. Pastebin Sniper                 |")
+			time.sleep(delay)
+			print("		|------------------------------------|")
+			time.sleep(delay)
+			print("		|25. Invite Info Grabber             |")
 			time.sleep(delay)
 			print("		|------------------------------------|")
 #________________
@@ -1574,6 +1632,10 @@ if logined == True or dev_mode == True:
 			print(colorama.Fore.RED + "		|24. Pastebin Sniper                 |")
 			time.sleep(delay)
 			print(colorama.Fore.RED + "		|------------------------------------|")
+			time.sleep(delay)
+			print(colorama.Fore.RED + "		|25. Invite Info Grabber             |")
+			time.sleep(delay)
+			print(colorama.Fore.RED + "		|------------------------------------|")
 #________________
 		if blue == True:
 			print(colorama.Fore.BLUE + "		██████╗░██╗░░░░░░█████╗░██████╗░░██████╗  ███╗░░░███╗██╗░░░██╗██╗░░░░░████████╗██╗████████╗░█████╗░░█████╗░██╗░░░░░")
@@ -1685,6 +1747,10 @@ if logined == True or dev_mode == True:
 			print(colorama.Fore.BLUE + "		|------------------------------------|")
 			time.sleep(delay)
 			print(colorama.Fore.BLUE + "		|24. Pastebin Sniper                 |")
+			time.sleep(delay)
+			print(colorama.Fore.BLUE + "		|------------------------------------|")
+			time.sleep(delay)
+			print(colorama.Fore.BLUE + "		|25. Invite Info Grabber             |")
 			time.sleep(delay)
 			print(colorama.Fore.BLUE + "		|------------------------------------|")
 #________________
@@ -1800,6 +1866,10 @@ if logined == True or dev_mode == True:
 			print(colorama.Fore.GREEN + "		|24. Pastebin Sniper                 |")
 			time.sleep(delay)
 			print(colorama.Fore.GREEN + "		|------------------------------------|")
+			time.sleep(delay)
+			print(colorama.Fore.GREEN + "		|25. Invite Info Grabber             |")
+			time.sleep(delay)
+			print(colorama.Fore.GREEN + "		|------------------------------------|")
 #________________
 		if magenta == True:
 			print(colorama.Fore.MAGENTA + "		██████╗░██╗░░░░░░█████╗░██████╗░░██████╗  ███╗░░░███╗██╗░░░██╗██╗░░░░░████████╗██╗████████╗░█████╗░░█████╗░██╗░░░░░")
@@ -1911,6 +1981,10 @@ if logined == True or dev_mode == True:
 			print(colorama.Fore.MAGENTA + "		|------------------------------------|")
 			time.sleep(delay)
 			print(colorama.Fore.MAGENTA + "		|24. Pastebin Sniper                 |")
+			time.sleep(delay)
+			print(colorama.Fore.MAGENTA + "		|------------------------------------|")
+			time.sleep(delay)
+			print(colorama.Fore.MAGENTA + "		|25. Invite Info Grabber             |")
 			time.sleep(delay)
 			print(colorama.Fore.MAGENTA + "		|------------------------------------|")
 #________________
@@ -2026,6 +2100,10 @@ if logined == True or dev_mode == True:
 			print(colorama.Fore.YELLOW + "		|24. Pastebin Sniper                 |")
 			time.sleep(delay)
 			print(colorama.Fore.YELLOW + "		|------------------------------------|")
+			time.sleep(delay)
+			print(colorama.Fore.YELLOW + "		|25. Invite Info Grabber             |")
+			time.sleep(delay)
+			print(colorama.Fore.YELLOW + "		|------------------------------------|")
 #________________
 		if cyan == True:
 			print(colorama.Fore.CYAN + "		██████╗░██╗░░░░░░█████╗░██████╗░░██████╗  ███╗░░░███╗██╗░░░██╗██╗░░░░░████████╗██╗████████╗░█████╗░░█████╗░██╗░░░░░")
@@ -2139,6 +2217,10 @@ if logined == True or dev_mode == True:
 			print(colorama.Fore.CYAN + "		|24. Pastebin Sniper                 |")
 			time.sleep(delay)
 			print(colorama.Fore.CYAN + "		|------------------------------------|")
+			time.sleep(delay)
+			print(colorama.Fore.CYAN + "		|25. Invite Info Grabber             |")
+			time.sleep(delay)
+			print(colorama.Fore.CYAN + "		|------------------------------------|")
 #________________
 		colorama.init()
 		if color == "8":
@@ -2230,6 +2312,9 @@ if logined == True or dev_mode == True:
 		if really_main == "i24" or really_main == "I24" or really_main == "I 24" or really_main == "i 24":
 			print("It Will Try Snipe Pastebin Links, Can Take A Long Time")
 			input("")
+		if really_main == "i25" or really_main == "I25" or really_main == "I 25" or really_main == "i 25":
+			print("It Will Give Info About An Invite (Server And Who Invited)")
+			input("")
 		if really_main == "1":
 			webhook_spammer()
 		if really_main == "3":
@@ -2272,6 +2357,8 @@ if logined == True or dev_mode == True:
 			tikokt_sniper()
 		if really_main == "18":
 			ip_info()
+		if really_main == "25":
+			invite_to_info()
 		if really_main == "20":
 			discord_invite_sniper()
 		if really_main == "21":
