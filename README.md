@@ -1,7 +1,6 @@
 # Official-Blob-Multitool
 
 Setup:
-
 1. download python (https://python.org)
 2. run setup.bat
 3. run start.bat
@@ -9,8 +8,7 @@ Setup:
 
 #-----------------
 
-info:
-
+Info:
 Official Discord: https://discord.gg/Crc92V59ck
 
 developer is blob#0005
