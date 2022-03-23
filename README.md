@@ -5,7 +5,9 @@ Setup:
 2. run setup.bat
 3. run start.bat
 4. enjoy multitool
+
 #-----------------
+
 info:
 Official Discord: https://discord.gg/Crc92V59ck
 
