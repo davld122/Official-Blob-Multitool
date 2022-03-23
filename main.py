@@ -1104,7 +1104,35 @@ def invite_to_info():
 	print("Done")
 	input("")
 	return
-	
+#------
+def live_webhook_spammer():
+	print("Live Webhook Spammer")
+	while True:
+		try:
+			webhook = input("Enter Webhook: ")
+			r = requests.get(webhook)
+			if "200" in str(r):
+				break
+			if "401" in str(r):
+				print("Webhook Invalid")
+		except Exception:
+			print("Webhook Invalid")
+	print("Type exit To Return")
+	while True:
+		message = input("Enter Message: ")
+		if message == "exit" or message == "EXIT":
+			return
+		while True:
+			r1 = requests.post(webhook, json={"content": message})
+			print(r1)
+			if "204" in str(r1):
+				print("Sent")
+				break
+			if "429" in str(r1):
+				print("Rate Lim")
+			if "400" in str(r1):
+				print("Message Was Nothing")
+				break
 	
 
 	
@@ -1124,6 +1152,39 @@ def invite_to_info():
 	
 	
 	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 #_____________
 logs = ""
 first_time = True
@@ -1134,7 +1195,7 @@ dev_mode = False
 dev_mode_startup_time = 0
 first_time2 = True
 lines_of_code = "2400"
-version = "Beta 4.0"
+version = "Beta 4.1"
 delay = 0.01
 rainbow = False
 blank = False
@@ -1404,6 +1465,10 @@ if logined == True or dev_mode == True:
 			print(colorama.Fore.YELLOW + "		|25. Invite Info Grabber             |")
 			time.sleep(delay)
 			print(colorama.Fore.GREEN + "		|------------------------------------|")
+			time.sleep(delay)
+			print(colorama.Fore.BLUE + "		|26. Live Webhook Spammer            |")
+			time.sleep(delay)
+			print(colorama.Fore.CYAN + "		|------------------------------------|")
 #__________________
 		if blank == True:
 			print("		██████╗░██╗░░░░░░█████╗░██████╗░░██████╗  ███╗░░░███╗██╗░░░██╗██╗░░░░░████████╗██╗████████╗░█████╗░░█████╗░██╗░░░░░")
@@ -1519,6 +1584,10 @@ if logined == True or dev_mode == True:
 			print("		|------------------------------------|")
 			time.sleep(delay)
 			print("		|25. Invite Info Grabber             |")
+			time.sleep(delay)
+			print("		|------------------------------------|")
+			time.sleep(delay)
+			print("		|26. Live Webhook Spammer            |")
 			time.sleep(delay)
 			print("		|------------------------------------|")
 #________________
@@ -1638,6 +1707,10 @@ if logined == True or dev_mode == True:
 			print(colorama.Fore.RED + "		|25. Invite Info Grabber             |")
 			time.sleep(delay)
 			print(colorama.Fore.RED + "		|------------------------------------|")
+			time.sleep(delay)
+			print(colorama.Fore.RED + "		|26. Live Webhook Spammer            |")
+			time.sleep(delay)
+			print(colorama.Fore.RED + "		|------------------------------------|")
 #________________
 		if blue == True:
 			print(colorama.Fore.BLUE + "		██████╗░██╗░░░░░░█████╗░██████╗░░██████╗  ███╗░░░███╗██╗░░░██╗██╗░░░░░████████╗██╗████████╗░█████╗░░█████╗░██╗░░░░░")
@@ -1755,6 +1828,11 @@ if logined == True or dev_mode == True:
 			print(colorama.Fore.BLUE + "		|25. Invite Info Grabber             |")
 			time.sleep(delay)
 			print(colorama.Fore.BLUE + "		|------------------------------------|")
+			time.sleep(delay)
+			print(colorama.Fore.BLUE + "		|26. Live Webhook Spammer            |")
+			time.sleep(delay)
+			print(colorama.Fore.BLUE + "		|------------------------------------|")
+			
 #________________
 		if green == True:
 			print(colorama.Fore.GREEN + "		██████╗░██╗░░░░░░█████╗░██████╗░░██████╗  ███╗░░░███╗██╗░░░██╗██╗░░░░░████████╗██╗████████╗░█████╗░░█████╗░██╗░░░░░")
@@ -1870,6 +1948,10 @@ if logined == True or dev_mode == True:
 			print(colorama.Fore.GREEN + "		|------------------------------------|")
 			time.sleep(delay)
 			print(colorama.Fore.GREEN + "		|25. Invite Info Grabber             |")
+			time.sleep(delay)
+			print(colorama.Fore.GREEN + "		|------------------------------------|")
+			time.sleep(delay)
+			print(colorama.Fore.GREEN + "		|26. Live Webhook Spammer            |")
 			time.sleep(delay)
 			print(colorama.Fore.GREEN + "		|------------------------------------|")
 #________________
@@ -1989,6 +2071,10 @@ if logined == True or dev_mode == True:
 			print(colorama.Fore.MAGENTA + "		|25. Invite Info Grabber             |")
 			time.sleep(delay)
 			print(colorama.Fore.MAGENTA + "		|------------------------------------|")
+			time.sleep(delay)
+			print(colorama.Fore.MAGENTA + "		|26. Live Webhook Spammer            |")
+			time.sleep(delay)
+			print(colorama.Fore.MAGENTA + "		|------------------------------------|")
 #________________
 		if yellow == True:
 			print(colorama.Fore.YELLOW + "		██████╗░██╗░░░░░░█████╗░██████╗░░██████╗  ███╗░░░███╗██╗░░░██╗██╗░░░░░████████╗██╗████████╗░█████╗░░█████╗░██╗░░░░░")
@@ -2104,6 +2190,10 @@ if logined == True or dev_mode == True:
 			print(colorama.Fore.YELLOW + "		|------------------------------------|")
 			time.sleep(delay)
 			print(colorama.Fore.YELLOW + "		|25. Invite Info Grabber             |")
+			time.sleep(delay)
+			print(colorama.Fore.YELLOW + "		|------------------------------------|")
+			time.sleep(delay)
+			print(colorama.Fore.YELLOW + "		|26. Live Webhook Spammer            |")
 			time.sleep(delay)
 			print(colorama.Fore.YELLOW + "		|------------------------------------|")
 #________________
@@ -2223,6 +2313,10 @@ if logined == True or dev_mode == True:
 			print(colorama.Fore.CYAN + "		|25. Invite Info Grabber             |")
 			time.sleep(delay)
 			print(colorama.Fore.CYAN + "		|------------------------------------|")
+			time.sleep(delay)
+			print(colorama.Fore.CYAN + "		|26. Live Webhook Spammer            |")
+			time.sleep(delay)
+			print(colorama.Fore.CYAN + "		|------------------------------------|")
 #________________
 		colorama.init()
 		if color == "8":
@@ -2317,6 +2411,9 @@ if logined == True or dev_mode == True:
 		if really_main == "i25" or really_main == "I25" or really_main == "I 25" or really_main == "i 25":
 			print("It Will Give Info About An Invite (Server And Who Invited)")
 			input("")
+		if really_main == "i26" or really_main == "I26" or really_main == "I 26" or really_main == "i 26":
+			print("Like A Webhook Spammer But It Not Spamming Same Messages, It Will Be Like You Typing In A Channel But You Are The Webhook If You Know What I Mean")
+			input("")
 		if really_main == "1":
 			webhook_spammer()
 		if really_main == "3":
@@ -2365,6 +2462,8 @@ if logined == True or dev_mode == True:
 			discord_invite_sniper()
 		if really_main == "21":
 			friend_scraper()
+		if really_main == "26":
+			live_webhook_spammer()
 		if really_main == "14":
 			while True:
 				color = input("""
