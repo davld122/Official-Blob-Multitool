@@ -1054,7 +1054,7 @@ def pastebin_sniper():
 def invite_to_info():
 	colorama.init(autoreset=True)
 	while True:
-		invite = input("Enter Invite: ")
+		invite = input("Enter Invite Code: ")
 		r = requests.get(f"https://discord.com/api/v6/invite/{invite}").text
 		if '{"message": "Unknown Invite", "code": 10006}' == str(r):
 			print("Invite Invalid")
