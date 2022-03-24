@@ -9,60 +9,37 @@ import json
 import socket
 #__________
 def webhook_deleter():
-	main = input("Enter How Manny Webhooks You Wanna Delete, Type inf Or INF For Infinity: ")
-	number = "0"
-	if "1" or "2" or "3" or "4" or "5" or "6" or "7" or "8" or "9" in main:
-		while True:
-			if main == "0":
-				print("It Needs To Be 1 Or More, Program Closing In 5 Seconds")
-				time.sleep(5)
-				return
-			while True:
-				try:
-					webhook = input("Enter Webhook: ")
-					r_check = requests.get(webhook).json
-					r_check = str(r_check)
-					if "200" in r_check:
-						break
-					if "200" not in r_check:
-						print("Webhook Invalid, Please Enter A Valid One")
-				except Exception:
-					print("Webhook Invalid, Please Enter A Valid One")
-			main2 = input("Do You Want To Send A Message Before Deleting Webhook? y/n: ")
-			if main2 == "n":
-				requests.delete(webhook)
-				print("Webhook Was Succsesfully Deleted")
-				time.sleep(2)
-			if main2 == "y":
-				main3 = input("Enter Message To Send Before Delete Webhook: ")
-				main7 = input("Enter Webhook Name: ")
-				main6 = input("Enter Avatar Url (Blank For None): ")
-				requests.post(webhook, json={'avatar_url': main6, 'username': main7, 'content': main3})
-				print("Message Succsesfully Sent")
-				requests.delete(webhook)
-				print("Webhook Was Succsesfully Deleted")
-				time.sleep(2)
-			number = int(number) + 1	
-			if number == int(main):
-				print("Done")
-				return
-	if "INF" or "inf" in main:
-		while True:
+	while True:
+		try:
 			webhook = input("Enter Webhook: ")
-			main2 = input("Do You Want To Send A Message Before Deleting Webhook? y/n: ")
-			if main2 == "n":
-				requests.delete(webhook)
-				print("Webhook Was Succsesfully Deleted")
-				time.sleep(2)
-			if main2 == "y":
-				main3 = input("Enter Message To Send Before Delete Webhook: ")
-				main6 = input("Enter Aatar Url: ")
-				main7 = input("Enter Webhook Name: ")
-				requests.post(webhook, json={'avatar_url': main6, 'username': main7, 'content': main3})
-				print("Message Succsesfully Sent")
-				requests.delete(webhook)
-				print("Webhook Was Succsesfully Deleted")
-				time.sleep(2)
+			r1 = requests.get(webhook)
+			if "200" in str(r1):
+				break
+			else:
+				print(colorama.Fore.RED + "Webhook Invalid")
+		except Exception:
+			print(colorama.Fore.RED + "Webhook Invalid")
+	while True:
+		message = input("Want To Send An Message Before Deleting Webhook (y/n): ")
+		if message == "y" or message == "n":
+			break
+		else:
+			print("Enter A Valid Choice")
+	if message == "y":
+		content = input("Enter Message: ")
+		r2 = requests.post(webhook, json={"content": content})
+		if "204" in str(r2):
+			print(colorama.Fore.GREEN + "Message Sent")
+		if "204" not in str(r2):
+			print(colorama.Fore.RED + "Error While Sending Message")
+	r = requests.delete(webhook)
+	if "204" in str(r):
+		print(colorama.Fore.GREEN + "Webhook Deleted")
+	if "204" not in str(r):
+		print(colorama.Fore.RED + "Error While Deleting Webhook")
+	print("Done")
+	input("")
+	return
 #_________
 def webhook_spammer():
 	while True:
@@ -134,24 +111,73 @@ def nitro_gen():
 	2. (CODE)
 	3. discord.gift/(CODE)
 	4. Custom(CODE)""")
-	main = input("> ")
+	while True:
+		main = input("> ")
+		if main == "1" or main == "2" or main == "3" or main == "4":
+			break
+		else:
+			print("Enter A Valid Choice")
 	if main == "4":
 		custom = input("Enter What You Want Before The Code: ")
-	main2 = input("How Manny Codes Do You Wanna Generate: ")
-	auto_check = input("Do You Wanna Auto Check The Codes, y/n: ")
+	while True:
+		try:
+			main2 = input("How Manny Codes Do You Wanna Generate: ")
+			main2 = int(main2)
+			main2 = str(main2)
+			break
+		except Exception:
+			print("Enter A Valid Choice")
+	while True:
+		auto_check = input("Do You Wanna Auto Check The Codes, y/n: ")
+		if auto_check == "y" or auto_check == "n":
+			break
+		else:
+			print("Enter A Valid Choice")
 	if auto_check == "y":
-		auto_webhook = input("Wanna Send Valid Codes To An Webhook (y/n): ")
-		if auto_webhook == "n":
-			pass
-		if auto_webhook == "y":
-			webhook = input("Enter Webhook: ")
-	delay = input("Enter Delay (0 For None): ")
-	save = input("Wanna Save Codes In A Txt File (y/n): ")
+			while True:
+				auto_webhook = input("Wanna Send Valid Codes To An Webhook (y/n): ")
+				if auto_webhook == "n" or auto_webhook == "y":
+					break
+				else:
+					print("Enter A Valid Choice")
+			if auto_webhook == "n":
+				pass
+			if auto_webhook == "y":
+				while True:
+					try:
+						webhook = input("Enter Webhook: ")
+						r4 = requests.get(webhook)
+						if "200" in str(r4):
+							break
+						if "200" not in str(r4):
+							print("Webhook Invalid")
+					except Exception:
+						print("Webhook Invalid")
+	while True:
+		try:
+			delay = input("Enter Delay (0 For None): ")
+			delay = int(delay)
+			delay = str(delay)
+			break
+		except Exception:
+			print("Enter A Valid Choice")
+	
+	while True:
+		save = input("Wanna Save Codes In A Txt File (y/n): ")
+		if save == "y" or save == "n":
+			break
+		else:
+			print("Enter A Valid Choice")
 	if auto_check == "y":
-		y_n = input("""Do You Wanna See When Its Invalid Or Only When Its Valid
+		while True:
+			y_n = input("""Do You Wanna See When Its Invalid Or Only When Its Valid
 		1. Only Valid
 		2. Invalid And Valid
 		""")
+			if y_n == "1" or y_n == "2":
+				break
+			else:
+				print("Enter Valid Choice")
 	limit = int(main2)
 	generated = 0
 	choices = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "1", "2", "3", "4", "5", "6", "7", "8", "9"]
@@ -288,9 +314,28 @@ def webhook_checker():
 					return
 #_________
 def roblox_giftcard_gen():
-	main = input("Enter How Manny Codes You Wanna Generate: ")
-	delay = input("Enter Delay (0 For None): ")
-	save = input("Wanna Save Codes In A Txt File (y/n): ")
+	while True:
+		try:
+			main = input("Enter How Manny Codes You Wanna Generate: ")
+			main = int(main)
+			main = str(main)
+			break
+		except Exception:
+			print("Enter A Valid Choice")
+	while True:
+		try:
+			delay = input("Enter Delay (0 For None): ")
+			delay = int(delay)
+			delay = str(delay)
+			break
+		except Exception:
+			print("Enter A Valid Choice")
+	while True:
+		save = input("Wanna Save Codes In A Txt File (y/n): ")
+		if save == "y" or save == "n":
+			break
+		else:
+			print("Enter Valid Choice")
 	choices = ["1", "2", "3", "4", "5", "6", "7", "8", "9"]
 	numba = 0
 	limit = int(main)
@@ -707,13 +752,25 @@ def ip_info():
 #____
 def tikokt_sniper():
 	choices = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "1", "2", "3", "4", "5", "6", "7", "8", "9"]
-	limit = input("Enter How Many Names You Wanna Find: ")
+	while True:
+		try:
+			limit = input("Enter How Many Names You Wanna Find: ")
+			limit = int(limit)
+			limit = str(limit)
+			break
+		except Exception:
+			print("Enter A Number")
 	limit = int(limit)
 	done = 0
 	valid = 0
 	invalid = 0
 	total = 0
-	save = input("Wanna Save Names In An Txt File (y/n): ")
+	while True:
+		save = input("Wanna Save Names In An Txt File (y/n): ")
+		if save == "y" or save == "n":
+			break
+		else:
+			print("Enter A Valid Choice")
 	while True:
 		random1 = random.choice(choices)
 		random2 = random.choice(choices)
