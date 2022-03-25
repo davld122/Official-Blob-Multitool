@@ -363,10 +363,7 @@ def roblox_giftcard_gen():
 			the_file.close()
 #________
 def token_checker():
-	main = input("""Pick One
-	1. Check 1 Token
-	2. Check Tokens In tokens.txt 
-	""")
+	main = "1"
 	if main == "1":
 		while True:
 			tokens = input("Enter Token: ")
@@ -384,48 +381,6 @@ def token_checker():
 				return
 			if main == "y":
 				pass
-	if main == "2":
-		total_checked = 0
-		total_valid = 0
-		total_invalid = 0
-		file = open("tokens.txt")
-		token = file.readlines()
-		file.close()
-		tokens_to_check = []
-		valid_tokens = []
-		for line in token:
-			tokens_to_check.append(line[:-1])
-		for token in tokens_to_check:
-			r = requests.get('https://discord.com/api/v6/auth/login', headers={"Authorization": token})
-			if "200" in str(r):
-				print(colorama.Fore.GREEN + "Token Valid")
-				print(token)
-				valid_tokens.append(token)
-				total_checked = total_checked + 1
-				total_valid = total_valid + 1
-			if "200" not in str(r):
-				print(colorama.Fore.RED + "Token Is Locked Or Invalid")
-				print(token)
-				total_checked = total_checked + 1
-				total_invalid = total_invalid + 1
-			print("\n" * 3)
-		print("Valid Tokens: ")
-		for line in valid_tokens:
-			print(line)
-		main = input("Wanna Save Tokens In An Txt File (y/n): ")
-		if main == "y":
-			for save_token in valid_tokens:
-				file2 = open("valid_tokens.txt", "a")
-				file2.writelines(f"{save_token}\n")
-				file2.close()
-			print("Done")
-		input("Press Enter To Continue: ")
-		print("Stats:")
-		print(f"Total Checked: {total_checked}")
-		print(f"Total Valid: {total_valid}/{total_checked}")
-		print(f"Total Invalid: {total_invalid}/{total_checked}")
-		input("")
-		return
 #_________
 def proxy_gen():
 	main = input("""
