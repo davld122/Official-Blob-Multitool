@@ -754,8 +754,10 @@ def webhook_info():
 def ip_info():
 	try:
 		ip = input("Enter Ip: ")
+		print("Getting IP Info, Could Take Sum Time So Be Patient")
 		r = requests.get(f"http://ip-api.com/json/{ip}")
 		r = r.json()
+		print("\n\n")
 		print("Country: " + r["country"])
 		print("Country Code: " + r["countryCode"])
 		print("Region Name: " + r["regionName"])
@@ -767,7 +769,40 @@ def ip_info():
 		print("ISP: " + r["isp"])
 		print("Org: " + r["org"])
 		print("AS: " + r["as"])
-		input("")
+		print("\n\n")
+		while True:
+			save = input("Wanna Save All Info In A Txt File (y/n): ")
+			if save == "y" or save == "n":
+				break
+			else:
+				print("Enter A Valid Choice")
+		if save == "y":
+			file = open(f"ip_info_{ip}", "a")
+			file.write("\n")
+			file.write("Country: " + r["country"])
+			file.write("\n")
+			file.write("Country Code: " + r["countryCode"])
+			file.write("\n")
+			file.write("Region Name: " + r["regionName"])
+			file.write("\n")
+			file.write("City: " + r["city"])
+			file.write("\n")
+			file.write("Zip Code: " + r["zip"])
+			file.write("\n")
+			file.write("Lat: " + str(r["lat"]))
+			file.write("\n")
+			file.write("Lon: " + str(r["lon"]))
+			file.write("\n")
+			file.write("Timezone: " + r["timezone"])
+			file.write("\n")
+			file.write("ISP: " + r["isp"])
+			file.write("\n")
+			file.write("Org: " + r["org"])
+			file.write("\n")
+			file.write("AS: " + r["as"])
+			file.write("\n")
+			file.close()
+			print("Succsesfully Saved Info")
 		return
 	except Exception:
 		print("Ip Invalid, Press Enter To Go Back To Main Meny")
@@ -1080,7 +1115,7 @@ def ip_logger_builder():
 #----
 def pastebin_sniper():
 	print("Pastebin Sniper")
-	choice = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
+	choice = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "1", "2", "3", "4", "5", "6", "7", "8", "9"]
 	valid_gen_amount = 0
 	total = 0
 	invalid = 0
@@ -1276,8 +1311,8 @@ logined_name = False
 dev_mode = False
 dev_mode_startup_time = 0
 first_time2 = True
-lines_of_code = "2600"
-version = "Beta 4.2"
+lines_of_code = "2700"
+version = "Beta 4.3"
 delay = 0.01
 rainbow = False
 blank = False
