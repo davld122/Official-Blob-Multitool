@@ -1,12 +1,54 @@
-import time
-import os
-import requests
-import random
-from urllib.request import Request, urlopen
-import webbrowser as wb
-import colorama
-import json
-import socket
+any_error = False
+try:
+	import time
+except Exception:
+	print("Time Module Required")
+	any_error = True
+try:
+	import os
+except Exception:
+	print("OS Module Required")
+	any_error = True
+try:
+	import requests
+except Exception:
+	print("Requests Module Required")
+	any_error = True
+try:
+	import random
+except Exception:
+	print("Random Module Required")
+	any_error = True
+try:
+	from urllib.request import Request, urlopen
+except Exception:
+	print("Urlib.Request Module Required")
+	any_error = True
+try:
+	import webbrowser as wb
+except Exception:
+	print("Webbrowser Module Required")
+	any_error = True
+try:
+	import colorama
+except Exception:
+	print("Colorama Module Required")
+	any_error = True
+try:
+	import json
+except Exception:
+	print("Json Module Required")
+	any_error = True
+try:
+	import socket
+except Exception:
+	print("Socket Module Requiered")
+	any_error = True
+if any_error == True:
+	print("If Want Any Help Add blob#0005 And I Will Try To Help You")
+	print("Press Enter To Close The Program")
+	input("")
+	exit()
 #__________
 def webhook_deleter():
 	while True:
@@ -54,26 +96,50 @@ def webhook_spammer():
 		except Exception:
 			print("Webhook Invalid, Please Enter A Valid One")
 	content = input("Enter Message: ")
-	avatar_y_n = input("Want An Avatar (y/n): ")
+	while True:
+		avatar_y_n = input("Want An Avatar (y/n): ")
+		if avatar_y_n == "n" or avatar_y_n == "y":
+			break
+		else:
+			print("Enter A Valid Choice")
 	if avatar_y_n == "y":
-		avatar_url = input("Enter Avatar Url: ")
+		while True:
+			avatar_url = input("Enter Avatar Url: ")
+			if "http://" in avatar_url or "https://" in avatar_url:
+				break
+			else:
+				print("Enter A Valid Choice")
 	if avatar_y_n == "n":
 		avatar_url = ""
 	username = input("Enter Bot Username: ")
-	limit = input("Enter Limit (i for infinity): ")
+	while True:
+		limit = input("Enter Limit (i for infinity): ")
+		if limit == "i" or limit == "I":
+			break
+		try:
+			limit = int(limit)
+			break
+		except Exception:
+			print("Enter A Valid Choice")
+	if limit == "i" or limit == "I":
+		limit = str(limit)
+		
 	done = 0
 	while True:
+		limit = str(limit)
 		r = requests.post(webhook, json={"avatar_url": avatar_url, "username": username, "content": content})
 		r = str(r)
 		if "i" not in str(limit) and "204" in r:
 			done = int(done) + 1
+		if "i" in limit or "I" in limit:
+			done == ""
 		if "204" in r:
-			if "i" not in limit:
-				print(colorama.Fore.GREEN + f"Message Sent ({done})")
-			if "i" in limit:
-				 print(colorama.Fore.GREEN + "Message Sent")
+			if "i" not in limit and "I" not in limit:
+				print(colorama.Fore.GREEN + f"Message Succsesfully Sent ({done})")
+			if "i" in limit or "I" in limit:
+				print(colorama.Fore.GREEN + "Message Succsesfully Sent")
 		if "204" not in r:
-			print(colorama.Fore.GREEN + "Rate Limited")
+			print(colorama.Fore.GREEN + "Rate Limited, Retrying...")
 		try:
 			if int(done) == int(limit):
 				print("Done")
@@ -368,10 +434,12 @@ def token_checker():
 		while True:
 			tokens = input("Enter Token: ")
 			r1 = requests.get('https://discord.com/api/v6/auth/login', headers={"Authorization": tokens})
+			print(r1)
 			if "200" not in str(r1):
 				print(colorama.Fore.RED + "Invalid")
 			if "200" in str(r1):
 				r = requests.get(f'https://discord.com/api/v6/invite/{invite_code}', headers={"Authorization": tokens})
+				print(r)
 				if "200" in str(r):
 					print(colorama.Fore.GREEN + "Valid")
 				if "403" in str(r):
@@ -417,27 +485,29 @@ def feedback():
 	return
 #_______
 def cookie_gen():
-	main = input("Enter How Many Cookies You Wanna Generate: ")
+	while True:
+		try:
+			main = input("Enter How Many Cookies You Wanna Generate: ")
+			main = int(main)
+			main = str(main)
+			break
+		except Exception:
+			print("Enter A Valid Choice")
 	print("Generating, Please Be Patient")
 	limit = int(main)
 	done = 0
 	choices = "ABCDEF123456789"
 	while True:
 		numba1 = random.choices(choices, k=732)
-		file = open("cookiee.txt", "a")
+		file = open("cookie.txt", "a")
 		file.write("_|WARNING:-DO-NOT-SHARE-THIS.--Sharing-this-will-allow-someone-to-log-in-as-you-and-to-steal-your-ROBUX-and-items.|_")
-		file.close()
-		for line in numba1:
-			file = open("cookiee.txt", "a")
-			file.write(line)
-			file.close()
+		file.write(''.join(numba1))
 		file = open("cookiee.txt", "a")
 		file.write("\n")
 		file.close()
 		done = int(done) + 1
-		print(f"{done} Cookies Have Been Generated")
+		print(f"{done} Cookie(s) Have Been Generated")
 		if done == limit:
-			print(f"{done} Cookies Have Been Generated")
 			print("Done")
 			input("")
 			return
@@ -697,7 +767,6 @@ def ip_info():
 		print("ISP: " + r["isp"])
 		print("Org: " + r["org"])
 		print("AS: " + r["as"])
-		print("Country: " + r["country"])
 		input("")
 		return
 	except Exception:
@@ -1006,7 +1075,7 @@ def ip_logger_builder():
 	file.write('input("")\n')
 	file.write('exit()\n')
 	file.close()
-	input("")
+	input("Done\n")
 	exit()
 #----
 def pastebin_sniper():
@@ -1063,6 +1132,7 @@ def pastebin_sniper():
 			print(f"Stats: \nTotal Checked: {total}\nTotal Invalid: {invalid}/{total}\nTotal Valid: {valid_gen_amount}/{total}")
 			input("")
 			return
+#----
 def invite_to_info():
 	colorama.init(autoreset=True)
 	while True:
@@ -1206,12 +1276,12 @@ logined_name = False
 dev_mode = False
 dev_mode_startup_time = 0
 first_time2 = True
-lines_of_code = "2400"
-version = "Beta 4.1"
+lines_of_code = "2600"
+version = "Beta 4.2"
 delay = 0.01
 rainbow = False
 blank = False
-invite_code = "sJxg3jnU"
+invite_code = "Crc92V59ck"
 red = False
 blue = False
 cyan = False
