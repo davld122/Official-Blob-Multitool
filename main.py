@@ -155,7 +155,7 @@ def ip_checker():
 	return
 #___________
 def credits():
-	print(f"This Program Was Fully Coded By blob#0005, Its Version {version}, Its Coded In Pyhton And Is About {lines_of_code} Lines Of Code, You Can Type i Before The Number Like i1, I1, I 1, i 1")
+	print(f"This Program Was Fully Coded By blob#0005, Its Version {version}, Its Coded In Pyhton And Is About {lines_of_code} Lines Of Code, You Can Type i Before The Number Like i1, I1, I 1, i 1 (i=info, if y do it then it will show what program do)")
 	input("")
 	return 
 #___________
@@ -525,33 +525,59 @@ def token_checker():
 				pass
 #_________
 def proxy_gen():
-	main = input("""
-	1. Http
-	2. Https
-	3. Socks4
-	4. Socks5
-	""")
-	main2 = input("Enter How Fast Proxies Shod Be (Ms And Minium 50 And Max 10 000): ")
-	
-	main2 = int(main2) + 0
-	if int(main2) > 10000 or int(main2) < 50:
-		print("Please Enter Valid Information")
-		input("")
-		return
-	if main == "1":
-		r = requests.get(f"https://api.proxyscrape.com/v2/?request=getproxies&protocol=http&timeout={main2}&country=all")
-	if main == "2":
-		r = requests.get(f"https://api.proxyscrape.com/v2/?request=getproxies&protocol=https&timeout={main2}&country=all")
-	if main == "3":
-		r = requests.get(f"https://api.proxyscrape.com/v2/?request=getproxies&protocol=socks4&timeout={main2}&country=all")
-	if main == "4":
-		r = requests.get(f"https://api.proxyscrape.com/v2/?request=getproxies&protocol=socks5&timeout={main2}&country=all")
-	file = open("proxies.txt", "wb")
-	file.write(r.content)
-	print("Done")
-	print("Press Enter To Go Back")
-	input("")
-	return
+    print("""
+    1. Http
+    2. Https
+    3. Socks4
+    4. Socks5""")
+    while True:
+        type = input("")
+        if type == "1" or type == "2" or type == "3" or type == "4":
+            break
+        else:
+            print("Enter A Valid Choice")
+
+    while True:
+        try:
+            ms = input("Enter Delay (50-10000, Lower = Less Proxies): ")
+            ms = int(ms)
+            if ms < 10001 and ms > 49:
+                break
+            else:
+                print("Enter A Valid Choie")
+        except Exception:
+            print("Enter A Valid Choice")
+    try:
+        if type == "1":
+            r = requests.get(f"https://api.proxyscrape.com/v2/?request=getproxies&protocol=http&timeout={ms}&country=all").text
+        if type == "2":
+            r = requests.get(f"https://api.proxyscrape.com/v2/?request=getproxies&protocol=https&timeout={ms}&country=all").text
+        if type == "3":
+            r = requests.get(f"https://api.proxyscrape.com/v2/?request=getproxies&protocol=socks4&timeout={ms}&country=all").text
+        if type == "4":
+            r = requests.get(f"https://api.proxyscrape.com/v2/?request=getproxies&protocol=socks5&timeout={ms}&country=all").text
+        while True:
+            save = input("""Pick One
+    1. Save In A Txt File
+    2. Only Print Proxies
+    3. Both
+    """)
+            if save == "1" or save == "2":
+                break
+            else:
+                print("Enter A Valid Choice")
+        if save == "1" or save == "3":
+            file = open("proxies.txt", "a")
+            file.write(str(r))
+            file.close()
+        if save == "2" or save == "3":
+            print(str(r))
+        print("Done")
+        input("")
+    except Exception:
+        print("Error While Getting Proxies")
+        input("")
+        return
 #______
 def feedback():
 	print("not working atm")
@@ -576,7 +602,7 @@ def cookie_gen():
 		file = open("cookie.txt", "a")
 		file.write("_|WARNING:-DO-NOT-SHARE-THIS.--Sharing-this-will-allow-someone-to-log-in-as-you-and-to-steal-your-ROBUX-and-items.|_")
 		file.write(''.join(numba1))
-		file = open("cookiee.txt", "a")
+		file = open("cookie.txt", "a")
 		file.write("\n")
 		file.close()
 		done = int(done) + 1
@@ -693,72 +719,8 @@ def token_spammer():
 		return
 #________
 def channel_scraper():
-	while True:
-		token = input("Enter Token: ")
-		r1 = requests.get('https://discord.com/api/v6/auth/login', headers={"authorization": token})
-		if "200" not in str(r1):
-			print("Invalid Token")
-		if "200" in str(r1):
-			r = requests.get(f"https://discord.com/api/v6/invite/{invite_code}", headers={"authorization": token})
-			if "200" in str(r):
-				break
-			if "403" in str(r):
-				print("Locked Token")
-	while True:
-		try:
-			id = input("Enter Channel Id: ")
-			id = int(id)
-			break
-		except Exception:
-			print("Enter A Valid Id")
-	while True:
-		info = input("""Pick One
-			1. Only Messages
-			2. Only Message Id
-			""")
-		if info == "1" or info == "2":
-			break
-		else:
-			print("Enter A Valid Choice")
-	while True:		
-		save = input("Wanna Save The Info In An Txt File (y/n): ")
-		if save == "y" or save == "n":
-			break
-		else:
-			print("Enter A Valid Choice")
-	headers = {
-		"authorization": token
-	}
-	try:
-		if info == "1":
-			info = requests.get(f"https://discord.com/api/v8/channels/{id}/messages", headers=headers)
-			json_file = json.loads((info.text))
-			print("Press Enter To Start: ")
-			input("")
-			for stuff in json_file:
-				print(stuff["content"] + "\n")
-				if save == "y":
-					file = open("user_content.txt", "a")
-					file.write(str(stuff["content"]) + "\n")
-					file.close()
-		if info == "2":
-			info = requests.get(f"https://discord.com/api/v8/channels/{id}/messages", headers=headers)
-			json_file = json.loads((info.text))
-			print("Press Enter To Start: ")
-			input("")
-			for stuff in json_file:
-				print(stuff["id"] + "\n")
-				if save == "y":
-					file = open("message_ids.txt", "a")
-					file.write(str(stuff["id"]) + "\n")
-					file.close()
-		print("Done")
-		input("")
-		return
-	except Exception:
-		print("Channel Id Was Invalid")
-		input("")
-		return
+	print("BROKEN")
+	input("")
 #_______
 def account_letter_sniper():
 	while True:
