@@ -155,9 +155,15 @@ def ip_checker():
 	return
 #___________
 def credits():
-	print(f"This Program Was Fully Coded By blob#0005, Its Version {version}, Its Coded In Pyhton And Is About {lines_of_code} Lines Of Code, You Can Type i Before The Number Like i1, I1, I 1, i 1 (i=info, if y do it then it will show what program do)")
-	input("")
-	return 
+    print("This Program Was Fully Coded By blob#0005")
+    print("You Can Type i Before The Number Like i1, I1, I 1, i 1 (i=info, if y do it then it will show what program do")
+    print("Its On Version " + str(version))
+    print("Please Do Not Change Credits")
+    print("This Tool Is Free So If You Payed For It, RIP")
+    print("My Github Account Link Is: https://github.com/blob0005")
+    print("Make Sure You Always Got The Latest Version, Download Here: https://github.com/blob0005/Official-Blob-Multitool")
+    input("")
+    return 
 #___________
 def private_screenshot_gen():
 	input("Press Enter To Start: ")
