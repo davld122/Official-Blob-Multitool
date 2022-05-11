@@ -457,7 +457,6 @@ def token_checker():
 			print("Unable To Find tokens.txt")
 			input("")
 			return
-		invite_code = "BbXykkqm"
 		validtokens = []
 		invalidtokens = []
 		lockedtokens = []
