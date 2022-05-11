@@ -906,50 +906,152 @@ def ip_info():
 #____
 def tikokt_sniper():
 	choices = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "1", "2", "3", "4", "5", "6", "7", "8", "9"]
+	
 	while True:
-		try:
-			limit = input("Enter How Many Names You Wanna Find: ")
-			limit = int(limit)
-			limit = str(limit)
-			break
-		except Exception:
-			print("Enter A Number")
-	limit = int(limit)
-	done = 0
-	valid = 0
-	invalid = 0
-	total = 0
-	while True:
-		save = input("Wanna Save Names In An Txt File (y/n): ")
-		if save == "y" or save == "n":
+		letter = input("""Pick One
+1. 5 Letter
+2. 4 Letter
+3. 3 Letter
+> """)
+		if letter == "1" or letter == "2" or letter == "3":
 			break
 		else:
 			print("Enter A Valid Choice")
-	while True:
-		random1 = random.choice(choices)
-		random2 = random.choice(choices)
-		random3 = random.choice(choices)
-		random4 = random.choice(choices)
-		random5 = random.choice(choices)
-		r = requests.session().head(f"https://www.tiktok.com/@{random1}{random2}{random3}{random4}{random5}")
-		r = str(r)
-		if "200" in r:
-			print("Username Taken, Generating New...")
-			invalid = invalid + 1
-			total = total + 1
-		if "404" in r:
-			done = done + 1
-			print(f"Done With {done}/{limit}, Username Not Taken/Banned, Username: {random1}{random2}{random3}{random4}{random5}")
-			valid = valid + 1
-			total = total + 1
-			if save == "y":
-				file = open("tiktok_names.txt", "a")
-				file.write(f"{random1}{random2}{random3}{random4}{random5}\n")
-				file.close()
-			if done == limit:
-				print(f"Done, Total Checked: {total}, Total Valid: {valid}, Total Invalid: {invalid}")
-				input("")
-				return
+	if letter == "1":
+		while True:
+			try:
+				limit = input("Enter How Many Names You Wanna Find: ")
+				limit = int(limit)
+				limit = str(limit)
+				break
+			except Exception:
+				print("Enter A Number")
+		limit = int(limit)
+		done = 0
+		valid = 0
+		invalid = 0
+		total = 0
+		while True:
+			save = input("Wanna Save Names In An Txt File (y/n): ")
+			if save == "y" or save == "n":
+				break
+			else:
+				print("Enter A Valid Choice")
+		while True:
+			random1 = random.choice(choices)
+			random2 = random.choice(choices)
+			random3 = random.choice(choices)
+			random4 = random.choice(choices)
+			random5 = random.choice(choices)
+			r = requests.session().head(f"https://www.tiktok.com/@{random1}{random2}{random3}{random4}{random5}")
+			r = str(r)
+			if "200" in r:
+				print("Username Taken, Generating New...")
+				invalid = invalid + 1
+				total = total + 1
+			if "404" in r:
+				done = done + 1
+				print(f"Done With {done}/{limit}, Username Not Taken/Banned, Username: {random1}{random2}{random3}{random4}{random5}")
+				valid = valid + 1
+				total = total + 1
+				if save == "y":
+					file = open("tiktok_names.txt", "a")
+					file.write(f"{random1}{random2}{random3}{random4}{random5}\n")
+					file.close()
+				if done == limit:
+					print(f"Done, Total Checked: {total}, Total Valid: {valid}, Total Invalid: {invalid}")
+					input("")
+					return
+	if letter == "2":
+		while True:
+			try:
+				limit = input("Enter How Many Names You Wanna Find: ")
+				limit = int(limit)
+				limit = str(limit)
+				break
+			except Exception:
+				print("Enter A Number")
+		limit = int(limit)
+		done = 0
+		valid = 0
+		invalid = 0
+		total = 0
+		while True:
+			save = input("Wanna Save Names In An Txt File (y/n): ")
+			if save == "y" or save == "n":
+				break
+			else:
+				print("Enter A Valid Choice")
+		while True:
+			random1 = random.choice(choices)
+			random2 = random.choice(choices)
+			random3 = random.choice(choices)
+			random4 = random.choice(choices)
+			random5 = random.choice(choices)
+			r = requests.session().head(f"https://www.tiktok.com/@{random1}{random2}{random3}{random4}")
+			r = str(r)
+			if "200" in r:
+				print("Username Taken, Generating New...")
+				invalid = invalid + 1
+				total = total + 1
+			if "404" in r:
+				done = done + 1
+				print(f"Done With {done}/{limit}, Username Not Taken/Banned, Username: {random1}{random2}{random3}{random4}")
+				valid = valid + 1
+				total = total + 1
+				if save == "y":
+					file = open("tiktok_names.txt", "a")
+					file.write(f"{random1}{random2}{random3}{random4}\n")
+					file.close()
+				if done == limit:
+					print(f"Done, Total Checked: {total}, Total Valid: {valid}, Total Invalid: {invalid}")
+					input("")
+					return
+	if letter == "3":
+		while True:
+			try:
+				limit = input("Enter How Many Names You Wanna Find: ")
+				limit = int(limit)
+				limit = str(limit)
+				break
+			except Exception:
+				print("Enter A Number")
+		limit = int(limit)
+		done = 0
+		valid = 0
+		invalid = 0
+		total = 0
+		while True:
+			save = input("Wanna Save Names In An Txt File (y/n): ")
+			if save == "y" or save == "n":
+				break
+			else:
+				print("Enter A Valid Choice")
+		while True:
+			random1 = random.choice(choices)
+			random2 = random.choice(choices)
+			random3 = random.choice(choices)
+			random4 = random.choice(choices)
+			random5 = random.choice(choices)
+			r = requests.session().head(f"https://www.tiktok.com/@{random1}{random2}{random3}")
+			r = str(r)
+			if "200" in r:
+				print("Username Taken, Generating New...")
+				invalid = invalid + 1
+				total = total + 1
+			if "404" in r:
+				done = done + 1
+				print(f"Done With {done}/{limit}, Username Not Taken/Banned, Username: {random1}{random2}{random3}")
+				valid = valid + 1
+				total = total + 1
+				if save == "y":
+					file = open("tiktok_names.txt", "a")
+					file.write(f"{random1}{random2}{random3}\n")
+					file.close()
+				if done == limit:
+					print(f"Done, Total Checked: {total}, Total Valid: {valid}, Total Invalid: {invalid}")
+					input("")
+					return
 #_____
 def discord_invite_sniper():
 	print(colorama.Fore.YELLOW + "THIS WILL TAKE A LONG TIME")
@@ -1504,8 +1606,8 @@ logined_name = False
 dev_mode = False
 dev_mode_startup_time = 0
 first_time2 = True
-lines_of_code = "2800"
-version = "Beta 4.4"
+lines_of_code = "3000"
+version = "Beta 4.6"
 delay = 0.01
 rainbow = False
 blank = False
