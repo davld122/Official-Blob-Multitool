@@ -1,6 +1,3 @@
-from ast import Return
-
-
 any_error = False
 try:
 	import time
