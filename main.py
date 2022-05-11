@@ -939,7 +939,7 @@ def tikokt_sniper():
 			total = total + 1
 		if "404" in r:
 			done = done + 1
-			print(f"Done With {done}/{limit}, Username Not Taken, Username: {random1}{random2}{random3}{random4}{random5}")
+			print(f"Done With {done}/{limit}, Username Not Taken/Banned, Username: {random1}{random2}{random3}{random4}{random5}")
 			valid = valid + 1
 			total = total + 1
 			if save == "y":
