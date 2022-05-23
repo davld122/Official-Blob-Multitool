@@ -782,6 +782,7 @@ def channel_scraper():
     input("")
 #_______
 def account_letter_sniper():
+    print("Its An Better Version On My Github, It Support Threads, 3 Letter Usernames, 4 Letter Usernames, Look In Number 3 For My Github Account")
     while True:
         main = input("How Manny 5 Roblox Letter Account Names Do You Find: ")
         try:
@@ -809,8 +810,9 @@ def account_letter_sniper():
         random3 = random.choice(choices)
         random4 = random.choice(choices)
         random5 = random.choice(choices)
-        r = requests.get(f"https://api.roblox.com/users/get-by-username?username={random1}{random2}{random3}{random4}{random5}").text
-        if "User not found" in r:
+        r = requests.get(f'https://auth.roblox.com/v1/usernames/validate?request.username={random1}{random2}{random3}{random4}{random5}&request.birthday=1337-04-20').json()
+        r = str(r)
+        if "0" in r:
             done = done + 1
             print(f"{done} Account Have Been Generated, Name: " + random1 + random2 + random3 + random4 + random5)
             if main2 == "y":
