@@ -1549,11 +1549,62 @@ def cookie_checker_gen():
             print("Done")
             input("")
             return
-
-    
-    
-    
-    
+#______
+def valid():
+    print("Enter A Valid Choice")
+    return
+def webhook_sniper():
+    while True:
+        save = input("Wanna Auto Save Webhooks (y/n): ")
+        if save == "y" or save == "n":
+            break
+        else:
+            valid()
+    while True:
+        try:
+            delay = input("Enter Delay For Each Thread (0=NONE): ")
+            delay = float(delay)
+            break
+        except:
+            valid()
+    while True:
+        try:
+            amount = input("How Many Codes Do You Wanna Check: ")
+            amount = int(amount)
+            break
+        except:
+            valid()
+    choice = "1234567890"
+    done = 0
+    choices = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "1", "2", "3", "4", "5", "6", "7", "8", "9"]
+    while True:
+        done = int(done)+1
+        id = random.choices(choice, k=18)
+        id = "".join(id)
+        code = random.choices(choices, k=68)
+        code = "".join(code)
+        webhook = "https://discord.com/api/webhooks/"+str(id)+"/"+str(code)
+        r = requests.get(webhook)
+        if "200" in str(r):
+            print(colorama.Fore.GREEN + "["+str(done)+"]"+"  Valid Webhook! "+webhook)
+            if save == "y":
+                valid = open("valid_webhooks.txt", "a")
+                valid.write(webhook+"\n")
+                valid.close()
+        else:
+            print(colorama.Fore.RED + "["+str(done)+"]"+"  Invalid Webhook! "+webhook)
+            if save == "y":
+                invalid = open("invalid_webhooks.txt", "a")
+                invalid.write(webhook+"\n")
+                invalid.close()
+        if str(done) == str(amount):
+            print("Done")
+            input("")
+            return
+        
+        
+        
+        
     
         
         
@@ -1888,6 +1939,10 @@ if logined == True or dev_mode == True:
             time.sleep(delay)
             #---
             print(colorama.Fore.RED + "        |------------------------------------|")
+            time.sleep(delay)
+            print(colorama.Fore.YELLOW + "        |28. Webhook Sniper                  |")
+            time.sleep(delay)
+            print(colorama.Fore.GREEN + "        |------------------------------------|")
 #__________________
         if blank == True:
             print("        ██████╗░██╗░░░░░░█████╗░██████╗░░██████╗  ███╗░░░███╗██╗░░░██╗██╗░░░░░████████╗██╗████████╗░█████╗░░█████╗░██╗░░░░░")
@@ -2011,6 +2066,10 @@ if logined == True or dev_mode == True:
             print("        |------------------------------------|")
             time.sleep(delay)
             print("        |27. Github Username Sniper          |")
+            time.sleep(delay)
+            print("        |------------------------------------|")
+            time.sleep(delay)
+            print("        |28. Webhook Sniper                  |")
             time.sleep(delay)
             print("        |------------------------------------|")
 #________________
@@ -2138,6 +2197,10 @@ if logined == True or dev_mode == True:
             print(colorama.Fore.RED + "        |27. Github Username Sniper          |")
             time.sleep(delay)
             print(colorama.Fore.RED + "        |------------------------------------|")
+            time.sleep(delay)
+            print(colorama.Fore.RED + "        |28. Webhook Sniper                  |")
+            time.sleep(delay)
+            print(colorama.Fore.RED + "        |------------------------------------|")
 #________________
         if blue == True:
             print(colorama.Fore.BLUE + "        ██████╗░██╗░░░░░░█████╗░██████╗░░██████╗  ███╗░░░███╗██╗░░░██╗██╗░░░░░████████╗██╗████████╗░█████╗░░█████╗░██╗░░░░░")
@@ -2261,6 +2324,10 @@ if logined == True or dev_mode == True:
             print(colorama.Fore.BLUE + "        |------------------------------------|")
             time.sleep(delay)
             print(colorama.Fore.BLUE + "        |27. Github Username Sniper          |")
+            time.sleep(delay)
+            print(colorama.Fore.BLUE + "        |------------------------------------|")
+            time.sleep(delay)
+            print(colorama.Fore.BLUE + "        |28. Webhook Sniper                  |")
             time.sleep(delay)
             print(colorama.Fore.BLUE + "        |------------------------------------|")
             
@@ -2389,6 +2456,10 @@ if logined == True or dev_mode == True:
             print(colorama.Fore.GREEN + "        |27. Github Username Sniper          |")
             time.sleep(delay)
             print(colorama.Fore.GREEN + "        |------------------------------------|")
+            time.sleep(delay)
+            print(colorama.Fore.GREEN + "        |28. Webhook Sniper                  |")
+            time.sleep(delay)
+            print(colorama.Fore.GREEN + "        |------------------------------------|")
 #________________
         if magenta == True:
             print(colorama.Fore.MAGENTA + "        ██████╗░██╗░░░░░░█████╗░██████╗░░██████╗  ███╗░░░███╗██╗░░░██╗██╗░░░░░████████╗██╗████████╗░█████╗░░█████╗░██╗░░░░░")
@@ -2512,6 +2583,10 @@ if logined == True or dev_mode == True:
             print(colorama.Fore.MAGENTA + "        |------------------------------------|")
             time.sleep(delay)
             print(colorama.Fore.MAGENTA + "        |27. Github Username Sniper          |")
+            time.sleep(delay)
+            print(colorama.Fore.MAGENTA + "        |------------------------------------|")
+            time.sleep(delay)
+            print(colorama.Fore.MAGENTA + "        |28. Webhook Sniper                  |")
             time.sleep(delay)
             print(colorama.Fore.MAGENTA + "        |------------------------------------|")
 #________________
@@ -2639,6 +2714,10 @@ if logined == True or dev_mode == True:
             print(colorama.Fore.YELLOW + "        |27. Github Username Sniper          |")
             time.sleep(delay)
             print(colorama.Fore.YELLOW + "        |------------------------------------|")
+            time.sleep(delay)
+            print(colorama.Fore.YELLOW + "        |28. Webhook Sniper                  |")
+            time.sleep(delay)
+            print(colorama.Fore.YELLOW + "        |------------------------------------|")
 #________________
         if cyan == True:
             print(colorama.Fore.CYAN + "        ██████╗░██╗░░░░░░█████╗░██████╗░░██████╗  ███╗░░░███╗██╗░░░██╗██╗░░░░░████████╗██╗████████╗░█████╗░░█████╗░██╗░░░░░")
@@ -2764,6 +2843,10 @@ if logined == True or dev_mode == True:
             print(colorama.Fore.CYAN + "        |27. Github Username Sniper          |")
             time.sleep(delay)
             print(colorama.Fore.CYAN + "        |------------------------------------|")
+            time.sleep(delay)
+            print(colorama.Fore.CYAN + "        |28. Webhook Sniper                  |")
+            time.sleep(delay)
+            print(colorama.Fore.CYAN + "        |------------------------------------|")
 #________________
         colorama.init()
         if color == "8":
@@ -2861,6 +2944,13 @@ if logined == True or dev_mode == True:
         if really_main == "i26" or really_main == "I26" or really_main == "I 26" or really_main == "i 26":
             print("Like A Webhook Spammer But It Not Spamming Same Messages, It Will Be Like You Typing In A Channel But You Are The Webhook If You Know What I Mean")
             input("")
+        if really_main == "i27" or really_main == "I27" or really_main == "I 27" or really_main == "i 27":
+            print("It Will Snipe Github Usernames")
+            input("")
+        if really_main == "i28" or really_main == "I28" or really_main == "I 28" or really_main == "i 28":
+            print("It Will Snipe Webhooks")
+            input("")
+
         if really_main == "1":
             webhook_spammer()
         if really_main == "3":
@@ -2913,6 +3003,8 @@ if logined == True or dev_mode == True:
             live_webhook_spammer()
         if really_main == "27":
             github_sniper()
+        if really_main == "28":
+            webhook_sniper()
         if really_main == "14":
             while True:
                 color = input("""
