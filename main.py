@@ -1,5 +1,11 @@
 any_error = False
 try:
+    import os
+    from os import system
+    system("title " + "Official Blob Multitool")
+except:
+    pass
+try:
     import time
 except Exception:
     print("Time Module Required")
@@ -1110,7 +1116,7 @@ def discord_invite_sniper():
             if int(worked) == int(limit):
                 print(f"Stats: Total Checked: {tryes}, Total Worked: {worked}, Total Invalid: {invalid})")
                 input("")
-                exit()
+                return
             if save == "y":
                 file = open("valid_invites.txt", "a")
                 file.write(f"https://discord.gg/{code}\n")
@@ -1310,7 +1316,7 @@ def ip_logger_builder():
     file.write('exit()\n')
     file.close()
     input("Done\n")
-    exit()
+    return
 #----
 def pastebin_sniper():
     print("Pastebin Sniper")
