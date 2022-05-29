@@ -5,56 +5,38 @@ try:
     system("title " + "Official Blob Multitool")
 except:
     pass
-try:
-    import time
-except Exception:
-    print("Time Module Required")
-    any_error = True
-try:
-    import os
-except Exception:
-    print("OS Module Required")
-    any_error = True
+import webbrowser as wb
+import time
+import os
+import random
+import json
+from urllib.request import Request, urlopen
+import socket
 try:
     import requests
-except Exception:
-    print("Requests Module Required")
-    any_error = True
-try:
-    import random
-except Exception:
-    print("Random Module Required")
-    any_error = True
-try:
-    from urllib.request import Request, urlopen
-except Exception:
-    print("Urlib.Request Module Required")
-    any_error = True
-try:
-    import webbrowser as wb
-except Exception:
-    print("Webbrowser Module Required")
-    any_error = True
-try:
     import colorama
-except Exception:
-    print("Colorama Module Required")
-    any_error = True
-try:
-    import json
-except Exception:
-    print("Json Module Required")
-    any_error = True
-try:
-    import socket
-except Exception:
-    print("Socket Module Requiered")
+    import pytube
+    import python_percentage
+except:
     any_error = True
 if any_error == True:
-    print("If Want Any Help Add blob#0005 And I Will Try To Help You")
-    print("Press Enter To Close The Program")
+    print("Missing Modules, Press Enter To Start Repair Process (May Not Always Work)")
     input("")
-    exit()
+    try:
+        import os
+        os.system("pip install requests")
+        os.system("pip install colorama")
+        os.system("pip install pytube")
+        os.system("pip install python-percentage")
+        print("")
+        print("")
+        print("Problem May Be Fixed Now, Restart The Program")
+        input("")
+        exit()
+    except:
+        print("Error While Fixing")
+        input("")
+        exit()
 #__________
 def webhook_deleter():
     while True:
@@ -1607,6 +1589,47 @@ def webhook_sniper():
             print("Done")
             input("")
             return
+#-----
+def calc():
+    for u in range(1):
+        while True:
+            try:
+                e = input("Enter Amount Of Robux: ")
+                e = float(e)
+                break
+            except:
+                print("Enter A Valid Choice")
+        r =  python_percentage.get_percentage(30.0, e)
+        print("Fee: " + str(r))
+        print("")
+        h = float(e) - r
+        print("Owner Will Get: " + str(h))
+        print("")
+        j = float(e) + float(r)
+        print("If Want No Fee Need Pay: " +  str(j))
+        input("")
+        return
+def clear():
+    try:
+        import os
+        os.system("cls")
+    except:
+        pass
+#-----
+def yt_download():
+    try:
+        url = input("Enter Youtube Link: ")
+        vid = pytube.YouTube(url)
+        print("Be Patient, May Take A While")
+        url = vid.streams.get_highest_resolution()
+        url.download()
+        print("Done, Check For The Vid In The Folder This File Is Located")
+        input("")
+        return
+    except:
+        print("Unkown Error")
+        input("")
+        return
         
         
         
@@ -1949,6 +1972,15 @@ if logined == True or dev_mode == True:
             print(colorama.Fore.YELLOW + "        |28. Webhook Sniper                  |")
             time.sleep(delay)
             print(colorama.Fore.GREEN + "        |------------------------------------|")
+            time.sleep(delay)
+            print(colorama.Fore.BLUE + "        |29. Roblox Fee Calculator           |")
+            time.sleep(delay)
+            print(colorama.Fore.CYAN + "        |------------------------------------|")
+            time.sleep(delay)
+            print(colorama.Fore.MAGENTA + "        |30. Youtube Video Downloader        |")
+            time.sleep(delay)
+            #---
+            print(colorama.Fore.RED + "        |------------------------------------|")
 #__________________
         if blank == True:
             print("        ██████╗░██╗░░░░░░█████╗░██████╗░░██████╗  ███╗░░░███╗██╗░░░██╗██╗░░░░░████████╗██╗████████╗░█████╗░░█████╗░██╗░░░░░")
@@ -2076,6 +2108,14 @@ if logined == True or dev_mode == True:
             print("        |------------------------------------|")
             time.sleep(delay)
             print("        |28. Webhook Sniper                  |")
+            time.sleep(delay)
+            print("        |------------------------------------|")
+            time.sleep(delay)
+            print("        |29. Roblox Fee Calculator           |")
+            time.sleep(delay)
+            print("        |------------------------------------|")
+            time.sleep(delay)
+            print("        |30. Youtube Video Downloader        |")
             time.sleep(delay)
             print("        |------------------------------------|")
 #________________
@@ -2207,6 +2247,14 @@ if logined == True or dev_mode == True:
             print(colorama.Fore.RED + "        |28. Webhook Sniper                  |")
             time.sleep(delay)
             print(colorama.Fore.RED + "        |------------------------------------|")
+            time.sleep(delay)
+            print(colorama.Fore.RED + "        |29. Roblox Fee Calculator           |")
+            time.sleep(delay)
+            print(colorama.Fore.RED + "        |------------------------------------|")
+            time.sleep(delay)
+            print(colorama.Fore.RED + "        |30. Youtube Video Downloader        |")
+            time.sleep(delay)
+            print(colorama.Fore.RED + "        |------------------------------------|")
 #________________
         if blue == True:
             print(colorama.Fore.BLUE + "        ██████╗░██╗░░░░░░█████╗░██████╗░░██████╗  ███╗░░░███╗██╗░░░██╗██╗░░░░░████████╗██╗████████╗░█████╗░░█████╗░██╗░░░░░")
@@ -2334,6 +2382,14 @@ if logined == True or dev_mode == True:
             print(colorama.Fore.BLUE + "        |------------------------------------|")
             time.sleep(delay)
             print(colorama.Fore.BLUE + "        |28. Webhook Sniper                  |")
+            time.sleep(delay)
+            print(colorama.Fore.BLUE + "        |------------------------------------|")
+            time.sleep(delay)
+            print(colorama.Fore.BLUE + "        |29. Roblox Fee Calculator           |")
+            time.sleep(delay)
+            print(colorama.Fore.BLUE + "        |------------------------------------|")
+            time.sleep(delay)
+            print(colorama.Fore.BLUE + "        |30. Youtube Video Downloader        |")
             time.sleep(delay)
             print(colorama.Fore.BLUE + "        |------------------------------------|")
             
@@ -2466,6 +2522,14 @@ if logined == True or dev_mode == True:
             print(colorama.Fore.GREEN + "        |28. Webhook Sniper                  |")
             time.sleep(delay)
             print(colorama.Fore.GREEN + "        |------------------------------------|")
+            time.sleep(delay)
+            print(colorama.Fore.GREEN + "        |29. Roblox Fee Calculator           |")
+            time.sleep(delay)
+            print(colorama.Fore.GREEN + "        |------------------------------------|")
+            time.sleep(delay)
+            print(colorama.Fore.GREEN + "        |30. Youtube Video Downloader        |")
+            time.sleep(delay)
+            print(colorama.Fore.GREEN + "        |------------------------------------|")
 #________________
         if magenta == True:
             print(colorama.Fore.MAGENTA + "        ██████╗░██╗░░░░░░█████╗░██████╗░░██████╗  ███╗░░░███╗██╗░░░██╗██╗░░░░░████████╗██╗████████╗░█████╗░░█████╗░██╗░░░░░")
@@ -2593,6 +2657,14 @@ if logined == True or dev_mode == True:
             print(colorama.Fore.MAGENTA + "        |------------------------------------|")
             time.sleep(delay)
             print(colorama.Fore.MAGENTA + "        |28. Webhook Sniper                  |")
+            time.sleep(delay)
+            print(colorama.Fore.MAGENTA + "        |------------------------------------|")
+            time.sleep(delay)
+            print(colorama.Fore.MAGENTA + "        |29. Roblox Fee Calculator           |")
+            time.sleep(delay)
+            print(colorama.Fore.MAGENTA + "        |------------------------------------|")
+            time.sleep(delay)
+            print(colorama.Fore.MAGENTA + "        |30. Youtube Video Downloader        |")
             time.sleep(delay)
             print(colorama.Fore.MAGENTA + "        |------------------------------------|")
 #________________
@@ -2724,6 +2796,14 @@ if logined == True or dev_mode == True:
             print(colorama.Fore.YELLOW + "        |28. Webhook Sniper                  |")
             time.sleep(delay)
             print(colorama.Fore.YELLOW + "        |------------------------------------|")
+            time.sleep(delay)
+            print(colorama.Fore.YELLOW + "        |29. Roblox Fee Calculator           |")
+            time.sleep(delay)
+            print(colorama.Fore.YELLOW + "        |------------------------------------|")
+            time.sleep(delay)
+            print(colorama.Fore.YELLOW + "        |30. Youtube Video Downloader        |")
+            time.sleep(delay)
+            print(colorama.Fore.YELLOW + "        |------------------------------------|")
 #________________
         if cyan == True:
             print(colorama.Fore.CYAN + "        ██████╗░██╗░░░░░░█████╗░██████╗░░██████╗  ███╗░░░███╗██╗░░░██╗██╗░░░░░████████╗██╗████████╗░█████╗░░█████╗░██╗░░░░░")
@@ -2853,6 +2933,14 @@ if logined == True or dev_mode == True:
             print(colorama.Fore.CYAN + "        |28. Webhook Sniper                  |")
             time.sleep(delay)
             print(colorama.Fore.CYAN + "        |------------------------------------|")
+            time.sleep(delay)
+            print(colorama.Fore.CYAN + "        |29. Roblox Fee Calculator           |")
+            time.sleep(delay)
+            print(colorama.Fore.CYAN + "        |------------------------------------|")
+            time.sleep(delay)
+            print(colorama.Fore.CYAN + "        |30. Youtube Video Downloader        |")
+            time.sleep(delay)
+            print(colorama.Fore.CYAN + "        |------------------------------------|")
 #________________
         colorama.init()
         if color == "8":
@@ -2956,6 +3044,12 @@ if logined == True or dev_mode == True:
         if really_main == "i28" or really_main == "I28" or really_main == "I 28" or really_main == "i 28":
             print("It Will Snipe Webhooks")
             input("")
+        if really_main == "i29" or really_main == "I29" or really_main == "I 29" or really_main == "i 29":
+            print("It Will Calculate Roblox Fees")
+            input("")
+        if really_main == "i30" or really_main == "I30" or really_main == "I 30" or really_main == "i 30":
+            print("It Will Download Youtube Videos")
+            input("")
 
         if really_main == "1":
             webhook_spammer()
@@ -3009,6 +3103,10 @@ if logined == True or dev_mode == True:
             live_webhook_spammer()
         if really_main == "27":
             github_sniper()
+        if really_main == "29":
+            calc()
+        if really_main == "30":
+            yt_download()
         if really_main == "28":
             webhook_sniper()
         if really_main == "14":
