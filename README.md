@@ -16,10 +16,6 @@ Setup:
 
 #-----------------
 
-Info:
-
-Official Discord: https://discord.gg/Crc92V59ck
-
-developer is blob#0005
+developer is blob#5302
 
 if have any problem running program or want me add anything feel free to add my discord blob#0005
